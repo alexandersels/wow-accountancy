@@ -1,5 +1,9 @@
 package be.tetjes.angulartest.api;
 
+import be.tetjes.angular.service.BeerService;
+import be.tetjes.angulartest.domain.Beer;
+import be.tetjes.angulartest.domain.CreateBeerCommand;
+import be.tetjes.angulartest.domain.UpdateBeerCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

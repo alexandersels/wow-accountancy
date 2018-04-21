@@ -1,15 +1,15 @@
 package be.tetjes.angulartest.domain;
 
-import be.tetjes.angulartest.util.CommandHandler;
-import be.tetjes.angulartest.util.CommandHandlerImpl;
+import be.tetjes.angulartest.iface.IBeer;
+import be.tetjes.angulartest.infrastructure.BaseEntity;
+import be.tetjes.angulartest.infrastructure.CommandHandler;
+import be.tetjes.angulartest.infrastructure.CommandHandlerImpl;
 import com.google.common.collect.Lists;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-
-import static com.google.common.collect.Lists.newArrayList;
 
 @Entity
 @Table(name = "beer")
