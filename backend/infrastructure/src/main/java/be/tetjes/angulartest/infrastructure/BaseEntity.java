@@ -1,8 +1,5 @@
 package be.tetjes.angulartest.infrastructure;
 
-import be.tetjes.angulartest.util.CommandHandler;
-import be.tetjes.angulartest.util.NestedBuilder;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;

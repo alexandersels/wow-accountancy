@@ -17,7 +17,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({"classpath:persistence.properties"})
-@EnableJpaRepositories(basePackages = "be.tetjes.angulartest")
+@EnableJpaRepositories(basePackages = "be.tetjes.angulartest.domain.repositories")
 public class PersistanceJpaConfig {
 
     @Autowired
@@ -27,7 +27,7 @@ public class PersistanceJpaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("be.tetjes.angulartest");
+        em.setPackagesToScan("be.tetjes.angulartest.domain.entities");
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());

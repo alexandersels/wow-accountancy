@@ -14,20 +14,10 @@
         <dependency>
             <groupId>be.tetjes</groupId>
             <artifactId>domain</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>be.tetjes</groupId>
             <artifactId>interface</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>be.tetjes</groupId>
-            <artifactId>interface</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

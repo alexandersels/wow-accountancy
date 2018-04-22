@@ -10,6 +10,6 @@ export class BeerService {
   }
 
   getAll(): Observable<Beer[]> {
-    return this.http.get<Beer[]>('/api/good-beers');
+    return this.http.get<Beer[]>('/api/beer');
   }
 }

@@ -1,7 +1,5 @@
 package be.tetjes.angulartest.infrastructure;
 
-import be.tetjes.angulartest.beer.Command;
-
 import java.util.function.Consumer;
 
 public class CommandHandlerImpl<C extends Command> implements CommandHandler {

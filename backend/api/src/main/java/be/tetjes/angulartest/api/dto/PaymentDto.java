@@ -1,9 +1,9 @@
-package be.tetjes.angulartest.api;
+package be.tetjes.angulartest.api.dto;
 
-public class BeerDto {
+public class PaymentDto {
 
     public Long id;
-    public String name;
+    public int price;
     public int version;
 
     public static Builder builder() {
@@ -11,29 +11,30 @@ public class BeerDto {
     }
 
     public static class Builder {
-        private BeerDto beerDto;
+
+        private PaymentDto payment;
 
         private Builder() {
-            beerDto = new BeerDto();
+            payment = new PaymentDto();
         }
 
         public Builder withId(Long id) {
-            beerDto.id = id;
+            payment.id = id;
             return this;
         }
 
-        public Builder withName(String name) {
-            beerDto.name = name;
+        public Builder withPrice(int price) {
+            payment.price = price;
             return this;
         }
 
         public Builder withVersion(int version) {
-            beerDto.version = version;
+            payment.version = version;
             return this;
         }
 
-        public BeerDto build() {
-            return beerDto;
+        public PaymentDto build() {
+            return payment;
         }
 
     }

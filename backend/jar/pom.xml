@@ -10,6 +10,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jar</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>be.tetjes</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.tetjes</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.tetjes</groupId>
+            <artifactId>infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.tetjes</groupId>
+            <artifactId>interface</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.tetjes</groupId>
+            <artifactId>service</artifactId>
+        </dependency>
+    </dependencies>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
