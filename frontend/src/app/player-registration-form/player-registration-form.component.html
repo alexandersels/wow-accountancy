@@ -1,0 +1,9 @@
+<h2>Player Registration</h2>
+<form name="form" (ngSubmit)="register()">
+  <div class="form-group">
+    <label for="firstName">Player Name</label>
+    <input id="firstName" type="text" required [(ngModel)]="model.name" name="firstName"/>
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<label>{{result}}</label>
