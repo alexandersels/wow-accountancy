@@ -14,4 +14,12 @@ export class PlayerService {
     createPlayer(player: Player) : Observable<Player> {
         return this.http.put<Player>('/api/player/', player);
     }
+
+    getPlayers() : Observable<Player[]> {
+        return this.http.get<Player[]>('/api/player/');
+    }
+
+    getPlayer(id: number): Observable<Player>{
+      return this.http.get<Player>('/api/player/'+ id);
+    }
 }

@@ -10,7 +10,6 @@ import { PlayerService } from '../services/player.service';
 export class PlayerRegistrationFormComponent implements OnInit {
 
   model = new Player("Alexander");
-  result: string = "Test";
 
   constructor(private service: PlayerService) { }
 
@@ -18,15 +17,7 @@ export class PlayerRegistrationFormComponent implements OnInit {
   }
 
   register() {
-      this.service.createPlayer(this.model)
-        .subscribe(
-          data => {
-              this.result = "success";
-          },
-          error => {
-            this.result = "fail";
-          }
-        );
+      this.service.createPlayer(this.model).subscribe();
   }
 
 }

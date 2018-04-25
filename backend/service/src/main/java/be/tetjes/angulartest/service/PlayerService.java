@@ -30,4 +30,9 @@ public class PlayerService {
         return repository.save(Player.createPlayer(command));
     }
 
+    @Transactional
+    public IPlayer getById(long id) {
+        return repository.findOne(id);
+    }
+
 }
