@@ -14,6 +14,10 @@ import { RealmRegistrationFormComponent } from './realm-registration-form/realm-
 import { RealmService } from './services/realm.service';
 import { RealmListComponent } from './realm-list/realm-list.component';
 import { RealmDetailComponent } from './realm-detail/realm-detail.component';
+import { IncomeRegistrationFormComponent } from './income-registration-form/income-registration-form.component';
+import { IncomeService } from './services/income.service';
+import { IncomeDetailComponent } from './income-detail/income-detail.component';
+import { IncomeListComponent } from './income-list/income-list.component';
 
 
 @NgModule({
@@ -24,7 +28,10 @@ import { RealmDetailComponent } from './realm-detail/realm-detail.component';
     PlayerDetailComponent,
     RealmRegistrationFormComponent,
     RealmListComponent,
-    RealmDetailComponent
+    RealmDetailComponent,
+    IncomeRegistrationFormComponent,
+    IncomeDetailComponent,
+    IncomeListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,7 @@ import { RealmDetailComponent } from './realm-detail/realm-detail.component';
     FormsModule,
     AppRoutingModule,
   ],
-  providers: [PlayerService, RealmService],
+  providers: [PlayerService, RealmService, IncomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

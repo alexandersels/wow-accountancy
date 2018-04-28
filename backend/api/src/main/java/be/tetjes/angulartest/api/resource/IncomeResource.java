@@ -1,21 +1,16 @@
 package be.tetjes.angulartest.api.resource;
 
 import be.tetjes.angulartest.api.dto.IncomeDto;
-import be.tetjes.angulartest.api.dto.RealmDto;
 import be.tetjes.angulartest.api.mapper.IncomeMapper;
-import be.tetjes.angulartest.api.mapper.RealmMapper;
 import be.tetjes.angulartest.domain.commands.income.CreateIncomeCommand;
-import be.tetjes.angulartest.domain.commands.realm.CreateRealmCommand;
 import be.tetjes.angulartest.service.IncomeService;
-import be.tetjes.angulartest.service.RealmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/income")
 public class IncomeResource {
 
     @Autowired
@@ -24,14 +19,26 @@ public class IncomeResource {
     @Autowired
     private IncomeService service;
 
-    @GetMapping
-    public Collection<IncomeDto> getRealms() {
-        return new ArrayList<>();
+    @GetMapping("/income")
+    public Collection<IncomeDto> getIncomes() {
+        return service.findAll()
+                .stream()
+                .map(i -> mapper.mapToDto(i))
+                .collect(Collectors.toList());
     }
 
-    @PutMapping
+    @GetMapping("/income/{id}")
+    public IncomeDto getIncomes(@PathVariable Long id) {
+        return mapper.mapToDto(service.getIncome(id));
+    }
+
+    @PutMapping("/income")
     public IncomeDto createRealm(@RequestBody IncomeDto incomeDto) {
-        CreateIncomeCommand command = CreateIncomeCommand.of(incomeDto.dungeon, incomeDto.price);
+        CreateIncomeCommand command = CreateIncomeCommand.getBuilder()
+                .withPrice(incomeDto.price)
+                .withDungeon(incomeDto.dungeon)
+                .withRealm(incomeDto.realm)
+                .build();
         return mapper.mapToDto(service.createIncome(command));
     }
 }

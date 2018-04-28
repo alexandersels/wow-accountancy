@@ -30,6 +30,11 @@ public class IncomeService {
     }
 
     @Transactional
+    public IIncome getIncome(Long id) {
+        return repository.findOne(id);
+    }
+
+    @Transactional
     public IIncome createIncome(CreateIncomeCommand command) {
         return repository.save(Income.createIncome(command));
     }

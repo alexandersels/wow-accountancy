@@ -10,6 +10,7 @@ import be.tetjes.angulartest.infrastructure.CommandHandler;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,14 +21,19 @@ public class Income extends BaseEntity implements IIncome {
         return getBuilder()
                 .withDungeon(command.getDungeon())
                 .withPrice(command.getPrice())
+                .withDate(command.getDate())
+                .withRealm(command.getRealm())
                 .build();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    @NotNull
     private Long id;
+
+    @Column(name = "date")
+    @NotNull
+    private Date date;
 
     @Column(name = "dungeon")
     @NotNull
@@ -36,6 +42,9 @@ public class Income extends BaseEntity implements IIncome {
     @Column(name = "price")
     @NotNull
     private int price;
+
+    @Column(name = "realm")
+    private String realm;
 
     private Income() {
     }
@@ -55,6 +64,10 @@ public class Income extends BaseEntity implements IIncome {
         return price;
     }
 
+    public Date getDate() {return date;}
+
+    public String getRealm() {return realm; }
+
     public static Income.Builder getBuilder() {
         return new Income.Builder();
     }
@@ -73,6 +86,16 @@ public class Income extends BaseEntity implements IIncome {
 
         public Income.Builder withPrice(int price) {
             instance().price = price;
+            return this;
+        }
+
+        public Income.Builder withDate(Date date) {
+            instance().date = date;
+            return this;
+        }
+
+        public Income.Builder withRealm(String realm) {
+            instance().realm = realm;
             return this;
         }
     }

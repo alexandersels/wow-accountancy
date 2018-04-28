@@ -1,0 +1,9 @@
+<h2>My Incomes</h2>
+
+<ul class="incomes">
+  <li *ngFor="let income of incomes">
+    <a routerLink="/income/{{income.id}}">
+      <label>{{income.id}} | {{income.price}}</label>
+    </a>
+  </li>
+</ul>

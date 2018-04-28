@@ -12,8 +12,10 @@ public class IncomeMapper {
     public IncomeDto mapToDto(IIncome income) {
         return IncomeDto.builder()
                 .withId(income.getId())
+                .withDate(income.getDate())
                 .withDungeon(income.getDungeon())
                 .withPrice(income.getPrice())
+                .withRealm(income.getRealm())
                 .withVersion(income.getVersion())
                 .build();
     }
