@@ -5,6 +5,7 @@ public class RealmDto {
     public String name;
     public String region;
     public int version;
+    public Long playerId;
 
     public static Builder builder() {
         return new Builder();
@@ -22,6 +23,7 @@ public class RealmDto {
             realm.name = name;
             return this;
         }
+
         public Builder withRegion(String region) {
             realm.region = region;
             return this;
@@ -29,6 +31,11 @@ public class RealmDto {
 
         public Builder withVersion(int version) {
             realm.version = version;
+            return this;
+        }
+
+        public Builder withPlayerId(Long playerId) {
+            realm.playerId = playerId;
             return this;
         }
 

@@ -1,6 +1,7 @@
 package be.tetjes.angulartest.domain.entities;
 
 import be.tetjes.angulartest.domain.commands.realm.CreateRealmCommand;
+import be.tetjes.angulartest.iface.IPlayer;
 import be.tetjes.angulartest.iface.IRealm;
 import be.tetjes.angulartest.infrastructure.BaseEntity;
 import be.tetjes.angulartest.infrastructure.CommandHandler;
@@ -18,6 +19,7 @@ public class Realm extends BaseEntity implements IRealm {
         return getBuilder()
                 .withName(command.getName())
                 .withRegion(command.getRegion())
+                .withPlayerId(command.getPlayerId())
                 .build();
     }
 
@@ -30,6 +32,9 @@ public class Realm extends BaseEntity implements IRealm {
     @NotNull
     private String region;
 
+    @JoinColumn(name = "playerId")
+    private Long playerId;
+
     private Realm() {
     }
 
@@ -39,11 +44,17 @@ public class Realm extends BaseEntity implements IRealm {
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getRegion() {
+
         return region;
+    }
+
+    public Long getPlayerId() {
+        return playerId;
     }
 
     public static Realm.Builder getBuilder() {
@@ -64,6 +75,11 @@ public class Realm extends BaseEntity implements IRealm {
 
         public Realm.Builder withRegion(String region) {
             instance().region = region;
+            return this;
+        }
+
+        public Realm.Builder withPlayerId(Long playerId) {
+            instance().playerId = playerId;
             return this;
         }
     }

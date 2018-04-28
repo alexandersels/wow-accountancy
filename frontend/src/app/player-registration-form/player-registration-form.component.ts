@@ -9,7 +9,7 @@ import { PlayerService } from '../services/player.service';
 })
 export class PlayerRegistrationFormComponent implements OnInit {
 
-  model = new Player("Alexander");
+  model = new Player();
 
   constructor(private service: PlayerService) { }
 

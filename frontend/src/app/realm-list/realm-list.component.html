@@ -1,0 +1,9 @@
+<h2>My Realms</h2>
+
+<ul class="realms">
+  <li *ngFor="let realm of realms">
+    <a routerLink="/realm/{{realm.name}}">
+      <label>{{realm.name}}</label>
+    </a>
+  </li>
+</ul>
