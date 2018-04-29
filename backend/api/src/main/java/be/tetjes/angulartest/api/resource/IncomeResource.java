@@ -21,7 +21,7 @@ public class IncomeResource {
 
     @GetMapping("/income")
     public Collection<IncomeDto> getIncomes() {
-        return service.findAll()
+        return service.getIncomes()
                 .stream()
                 .map(i -> mapper.mapToDto(i))
                 .collect(Collectors.toList());

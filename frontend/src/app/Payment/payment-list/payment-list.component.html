@@ -1,0 +1,9 @@
+<h2>My Payments</h2>
+
+<ul class="payments">
+  <li *ngFor="let payment of payments">
+    <a routerLink="/payment/{{payment.id}}">
+      <label>{{payment.realm}} | {{payment.price}}</label>
+    </a>
+  </li>
+</ul>

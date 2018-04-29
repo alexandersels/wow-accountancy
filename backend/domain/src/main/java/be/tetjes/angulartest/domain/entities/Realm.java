@@ -19,7 +19,7 @@ public class Realm extends BaseEntity implements IRealm {
         return getBuilder()
                 .withName(command.getName())
                 .withRegion(command.getRegion())
-                .withPlayerId(command.getPlayerId())
+                .withPlayer(command.getPlayer())
                 .build();
     }
 
@@ -32,8 +32,8 @@ public class Realm extends BaseEntity implements IRealm {
     @NotNull
     private String region;
 
-    @JoinColumn(name = "playerId")
-    private Long playerId;
+    @JoinColumn(name = "player")
+    private String player;
 
     private Realm() {
     }
@@ -53,8 +53,8 @@ public class Realm extends BaseEntity implements IRealm {
         return region;
     }
 
-    public Long getPlayerId() {
-        return playerId;
+    public String getPlayer() {
+        return player;
     }
 
     public static Realm.Builder getBuilder() {
@@ -78,8 +78,8 @@ public class Realm extends BaseEntity implements IRealm {
             return this;
         }
 
-        public Realm.Builder withPlayerId(Long playerId) {
-            instance().playerId = playerId;
+        public Realm.Builder withPlayer(String player) {
+            instance().player = player;
             return this;
         }
     }

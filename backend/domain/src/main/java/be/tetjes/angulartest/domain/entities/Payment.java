@@ -1,8 +1,6 @@
 package be.tetjes.angulartest.domain.entities;
 
-import be.tetjes.angulartest.domain.commands.income.CreateIncomeCommand;
 import be.tetjes.angulartest.domain.commands.payment.CreatePaymentCommand;
-import be.tetjes.angulartest.iface.IIncome;
 import be.tetjes.angulartest.iface.IPayment;
 import be.tetjes.angulartest.infrastructure.BaseEntity;
 import be.tetjes.angulartest.infrastructure.CommandHandler;
@@ -13,25 +11,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "income")
+@Table(name = "payment")
 public class Payment extends BaseEntity implements IPayment {
 
     public static Payment createPayment(CreatePaymentCommand command) {
         return getBuilder()
                 .withPrice(command.getPrice())
+                .withPlayer(command.getPlayer())
+                .withRealm(command.getRealm())
                 .build();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    @NotNull
     private Long id;
-
 
     @Column(name = "price")
     @NotNull
     private int price;
+
+    @Column(name = "player")
+    @NotNull
+    private String player;
+
+    @Column(name = "realm")
+    @NotNull
+    private String realm;
 
     private Payment() {
     }
@@ -41,7 +47,17 @@ public class Payment extends BaseEntity implements IPayment {
         return new ArrayList<CommandHandler>();
     }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
+
+    public String getPlayer() {
+        return player;
+    }
+
+    public String getRealm() {
+        return realm;
+    }
 
 
     public int getPrice() {
@@ -63,5 +79,17 @@ public class Payment extends BaseEntity implements IPayment {
             instance().price = price;
             return this;
         }
+
+        public Payment.Builder withPlayer(String player) {
+            instance().player = player;
+            return this;
+        }
+
+        public Payment.Builder withRealm(String realm) {
+            instance().realm = realm;
+            return this;
+        }
+
+
     }
 }

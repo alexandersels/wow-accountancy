@@ -1,22 +1,20 @@
 package be.tetjes.angulartest.domain.commands.realm;
 
-import be.tetjes.angulartest.domain.entities.Player;
-
 public class CreateRealmCommand {
 
-    public static CreateRealmCommand of(String name, String region, Long playerId) {
-        return new CreateRealmCommand(name, region, playerId);
+    public static CreateRealmCommand of(String name, String region, String player) {
+        return new CreateRealmCommand(name, region, player);
     }
 
     private String name;
     private String region;
-    private Long playerId;
+    private String player;
 
-    private CreateRealmCommand(String name, String region, Long playerId) {
+    private CreateRealmCommand(String name, String region, String player) {
 
         this.name = name;
         this.region = region;
-        this.playerId = playerId;
+        this.player = player;
     }
 
     public String getName() {
@@ -27,7 +25,5 @@ public class CreateRealmCommand {
         return region;
     }
 
-    public Long getPlayerId() {
-        return playerId;
-    }
+    public String getPlayer() {return player;}
 }

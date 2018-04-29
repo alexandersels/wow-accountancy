@@ -22,7 +22,7 @@ public class RealmService {
     private RealmRepository repository;
 
     @Transactional
-    public List<IRealm> findAll() {
+    public List<IRealm> getRealms() {
         return repository.findAll().stream()
                 .map(Realm.class::cast)
                 .collect(toList());

@@ -9,7 +9,6 @@ public class PlayerMapper {
 
     public PlayerDto mapToDto(IPlayer player) {
         return PlayerDto.builder()
-                .withId(player.getId())
                 .withName(player.getName())
                 .withVersion(player.getVersion())
                 .build();

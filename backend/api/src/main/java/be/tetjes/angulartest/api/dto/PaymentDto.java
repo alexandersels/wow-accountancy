@@ -5,6 +5,8 @@ public class PaymentDto {
     public Long id;
     public int price;
     public int version;
+    public String player;
+    public String realm;
 
     public static Builder builder() {
         return new Builder();
@@ -30,6 +32,16 @@ public class PaymentDto {
 
         public Builder withVersion(int version) {
             payment.version = version;
+            return this;
+        }
+
+        public Builder withRealm(String realm) {
+            payment.realm = realm;
+            return this;
+        }
+
+        public Builder withPlayer(String player) {
+            payment.player = player;
             return this;
         }
 

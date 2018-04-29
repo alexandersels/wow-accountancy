@@ -11,7 +11,7 @@ public class RealmMapper {
         return RealmDto.builder()
                 .withName(realm.getName())
                 .withRegion(realm.getRegion())
-                .withPlayerId(realm.getPlayerId())
+                .withPlayerId(realm.getPlayer())
                 .withVersion(realm.getVersion())
                 .build();
     }

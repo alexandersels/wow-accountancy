@@ -19,7 +19,7 @@ public class PlayerService {
     private PlayerRepository repository;
 
     @Transactional
-    public List<IPlayer> findAll() {
+    public List<IPlayer> getPlayers() {
         return repository.findAll().stream()
                 .map(Player.class::cast)
                 .collect(toList());
@@ -31,8 +31,8 @@ public class PlayerService {
     }
 
     @Transactional
-    public IPlayer getById(long id) {
-        return repository.findOne(id);
+    public IPlayer getPlayer(String name) {
+        return repository.findOne(name);
     }
 
 }

@@ -23,7 +23,7 @@ public class IncomeService {
     private IncomeRepository repository;
 
     @Transactional
-    public List<IIncome> findAll() {
+    public List<IIncome> getIncomes() {
         return repository.findAll().stream()
                 .map(Income.class::cast)
                 .collect(toList());

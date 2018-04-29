@@ -2,6 +2,7 @@ package be.tetjes.angulartest.api.resource;
 
 import be.tetjes.angulartest.api.dto.IncomeDto;
 import be.tetjes.angulartest.api.dto.PaymentDto;
+import be.tetjes.angulartest.api.dto.PlayerDto;
 import be.tetjes.angulartest.api.dto.RealmDto;
 import be.tetjes.angulartest.api.mapper.IncomeMapper;
 import be.tetjes.angulartest.api.mapper.PaymentMapper;
@@ -14,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/payment")
 public class PaymentResource {
 
     @Autowired
@@ -25,14 +26,26 @@ public class PaymentResource {
     @Autowired
     private PaymentService service;
 
-    @GetMapping
+    @GetMapping("/payment")
     public Collection<PaymentDto> getPayments() {
-        return new ArrayList<>();
+        return service.findAll()
+                .stream()
+                .map(p -> mapper.mapToDto(p))
+                .collect(Collectors.toList());
     }
 
-    @PutMapping
+    @GetMapping("/payment/{id}")
+    public PaymentDto getPayment(@PathVariable Long id) {
+        return mapper.mapToDto(service.getById(id));
+    }
+
+    @PutMapping("/payment")
     public PaymentDto createPayment(@RequestBody PaymentDto paymentDto) {
-        CreatePaymentCommand command = CreatePaymentCommand.of(paymentDto.price);
+        CreatePaymentCommand command = CreatePaymentCommand.getBuilder()
+                .withPlayer(paymentDto.player)
+                .withPrice(paymentDto.price)
+                .withRealm(paymentDto.realm)
+                .build();
         return mapper.mapToDto(service.createPayment(command));
     }
 }

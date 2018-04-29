@@ -2,7 +2,6 @@ package be.tetjes.angulartest.api.dto;
 
 public class PlayerDto {
 
-    public Long id;
     public String name;
     public int version;
 
@@ -16,11 +15,6 @@ public class PlayerDto {
 
         private Builder() {
             player = new PlayerDto();
-        }
-
-        public Builder withId(Long id) {
-            player.id = id;
-            return this;
         }
 
         public Builder withName(String name) {

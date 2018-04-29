@@ -1,6 +1,5 @@
 package be.tetjes.angulartest.api.resource;
 
-import be.tetjes.angulartest.api.dto.PlayerDto;
 import be.tetjes.angulartest.api.dto.RealmDto;
 import be.tetjes.angulartest.api.mapper.RealmMapper;
 import be.tetjes.angulartest.domain.commands.realm.CreateRealmCommand;
@@ -8,7 +7,6 @@ import be.tetjes.angulartest.service.RealmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -23,7 +21,7 @@ public class RealmResource {
 
     @GetMapping("/realm")
     public Collection<RealmDto> getRealms() {
-        return service.findAll()
+        return service.getRealms()
                 .stream()
                 .map(r -> mapper.mapToDto(r))
                 .collect(Collectors.toList());
@@ -36,7 +34,7 @@ public class RealmResource {
 
     @PutMapping("/realm")
     public RealmDto createRealm(@RequestBody RealmDto realmDto) {
-        CreateRealmCommand command = CreateRealmCommand.of(realmDto.name, realmDto.region, realmDto.playerId);
+        CreateRealmCommand command = CreateRealmCommand.of(realmDto.name, realmDto.region, realmDto.player);
         return mapper.mapToDto(service.createRealm(command));
     }
 

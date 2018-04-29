@@ -29,6 +29,11 @@ public class PaymentService {
     }
 
     @Transactional
+    public IPayment getById(Long id) {
+        return repository.findOne(id);
+    }
+
+    @Transactional
     public IPayment createPayment(CreatePaymentCommand command) {
         return repository.save(Payment.createPayment(command));
     }

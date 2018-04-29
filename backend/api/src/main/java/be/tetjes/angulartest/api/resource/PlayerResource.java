@@ -24,15 +24,15 @@ public class PlayerResource {
 
     @GetMapping("/player")
     public Collection<PlayerDto> getPlayers() {
-        return service.findAll()
+        return service.getPlayers()
                 .stream()
                 .map(p -> mapper.mapToDto(p))
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/player/{id}")
-    public PlayerDto getPlayer(@PathVariable Long id) {
-        return mapper.mapToDto(service.getById(id));
+    @GetMapping("/player/{name}")
+    public PlayerDto getPlayer(@PathVariable String name) {
+        return mapper.mapToDto(service.getPlayer(name));
     }
 
     @PutMapping("/player")
