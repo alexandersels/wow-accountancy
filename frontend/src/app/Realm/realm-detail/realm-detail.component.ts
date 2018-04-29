@@ -5,13 +5,14 @@ import { RealmService } from '../../shared/services/realm.service';
 import { Realm } from '../../shared/models/realm.model';
 import { Player } from '../../shared/models/player.model';
 import { PlayerService } from '../../shared/services/player.service';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
 
 @Component({
   selector: 'app-realm-detail',
   templateUrl: './realm-detail.component.html',
   styleUrls: ['./realm-detail.component.css']
 })
-export class RealmDetailComponent implements OnInit {
+export class RealmDetailComponent extends Unsubscribe implements OnInit {
 
   realm: Realm;
   player: Player;
@@ -19,7 +20,9 @@ export class RealmDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private realmService: RealmService,
               private playerService: PlayerService,
-              private location: Location) {
+              private location: Location)
+  {
+    super();
   }
 
   ngOnInit() {
@@ -38,7 +41,8 @@ export class RealmDetailComponent implements OnInit {
 
   loadPlayer(realm: Realm): void {
     this.realm = realm;
-    this.playerService.getPlayer(realm.player).subscribe(player => this.player = player);
+    this.playerService.getPlayer(realm.player)
+      .subscribe(player => this.player = player);
   }
 
   goBack(): void {

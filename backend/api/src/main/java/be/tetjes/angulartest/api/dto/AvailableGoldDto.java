@@ -6,8 +6,9 @@ import java.util.List;
 
 public class AvailableGoldDto {
 
-    public int price;
-    public List<AvailableGoldPerRealmDto> goldPerRealm;
+    public int totalGold;
+    public int remainingGold;
+    public List<GoldPerRealmDto> goldPerRealm;
 
     public static Builder getBuilder() {
         return new Builder();
@@ -21,12 +22,17 @@ public class AvailableGoldDto {
             return new AvailableGoldDto();
         }
 
-        public Builder withPrice(int price) {
-            instance().price = price;
+        public Builder withTotalGold(int totalGold) {
+            instance().totalGold = totalGold;
             return this;
         }
 
-        public Builder withGoldPerRealms(List<AvailableGoldPerRealmDto> goldPerRealms) {
+        public Builder withRemainingGold(int remainingGold) {
+            instance().remainingGold = remainingGold;
+            return this;
+        }
+
+        public Builder withGoldPerRealm(List<GoldPerRealmDto> goldPerRealms) {
             instance().goldPerRealm = goldPerRealms;
             return this;
         }

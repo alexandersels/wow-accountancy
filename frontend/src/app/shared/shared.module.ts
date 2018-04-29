@@ -3,6 +3,9 @@ import { PlayerService } from './services/player.service';
 import { PaymentService } from './services/payment.service';
 import { RealmService } from './services/realm.service';
 import { IncomeService } from './services/income.service';
+import { AvailableGoldService } from './services/available-gold.service';
+import { TeamService } from './services/team.service';
+import { SplitService } from './services/split.service';
 
 const MODULES = [
 
@@ -15,7 +18,10 @@ const SERVICES = [
   PlayerService,
   RealmService,
   IncomeService,
-  PaymentService
+  PaymentService,
+  AvailableGoldService,
+  TeamService,
+  SplitService
 ];
 
 const PIPES = [

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Income } from '../../shared/models/income.model';
 import { IncomeService } from '../../shared/services/income.service';
-import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
 
 @Component({
   selector: 'app-income-list',
   templateUrl: './income-list.component.html',
   styleUrls: ['./income-list.component.css']
 })
-export class IncomeListComponent extends Unsubscribable implements OnInit {
+export class IncomeListComponent extends Unsubscribe implements OnInit {
 
   incomes: Income[];
 
@@ -22,7 +22,6 @@ export class IncomeListComponent extends Unsubscribable implements OnInit {
 
   getIncomes(): void {
     this.service.getIncomes()
-      .takeUntil(this.ngUnsubscribe$)
       .subscribe(incomes => this.incomes = incomes);
   }
 }

@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -22,7 +25,7 @@ public class PaymentService {
     private PaymentRepository repository;
 
     @Transactional
-    public List<IPayment> findAll() {
+    public Collection<IPayment> getPayments() {
         return repository.findAll().stream()
                 .map(Payment.class::cast)
                 .collect(toList());
@@ -36,6 +39,14 @@ public class PaymentService {
     @Transactional
     public IPayment createPayment(CreatePaymentCommand command) {
         return repository.save(Payment.createPayment(command));
+    }
+
+    @Transactional
+    public Collection<IPayment> getPaymentsPerPlayer(String playerName) {
+        return getPayments()
+                .stream()
+                .filter(p -> p.getPlayer().equals(playerName))
+                .collect(Collectors.toList());
     }
 
 }

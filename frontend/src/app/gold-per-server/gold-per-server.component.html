@@ -1,3 +1,10 @@
-<p>
-  gold-per-server works!
-</p>
+<div *ngIf="availableGold">
+  <h2>Available Gold</h2>
+  <div><span>total gold: </span>{{availableGold.totalGold}}</div>
+  <div><span>current gold: </span>{{availableGold.remaingGold}}</div>
+  <ul class="availableGold">
+    <li *ngFor="let goldPerRealm of availableGold.goldPerRealm">
+        <label>{{goldPerRealm.realm}} | {{goldPerRealm.gold}} | {{goldPerRealm.player}}</label>
+    </li>
+  </ul>
+</div>

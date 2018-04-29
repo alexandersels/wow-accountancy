@@ -13,6 +13,10 @@ import { PaymentRegistrationFormComponent } from './Payment/payment-registration
 import { PaymentListComponent } from './Payment/payment-list/payment-list.component';
 import { PaymentDetailComponent } from './Payment/payment-detail/payment-detail.component';
 import { GoldPerServerComponent } from './gold-per-server/gold-per-server.component';
+import { TeamRegistrationFormComponent } from './team/team-registration-form/team-registration-form.component';
+import { TeamListComponent } from './team/team-list/team-list.component';
+import { TeamDetailComponent } from './team/team-detail/team-detail.component';
+import { SplitComponent } from './split/split.component';
 
 const routes: Routes = [
   {path: 'availablePlayers', component: PlayerListComponent},
@@ -27,7 +31,11 @@ const routes: Routes = [
   {path: 'registerPayment', component: PaymentRegistrationFormComponent},
   {path: 'availablePayments', component: PaymentListComponent},
   {path: 'payment/:id', component: PaymentDetailComponent},
-  {path: 'availableGold', component: GoldPerServerComponent}
+  {path: 'availableGold', component: GoldPerServerComponent},
+  {path: 'registerTeam', component: TeamRegistrationFormComponent},
+  {path: 'availableTeams', component: TeamListComponent},
+  {path: 'team/:id', component: TeamDetailComponent},
+  {path: 'split', component: SplitComponent},
 
 ]
 

@@ -3,13 +3,14 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { IncomeService } from '../../shared/services/income.service';
 import { Income } from '../../shared/models/income.model';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
 
 @Component({
   selector: 'app-income-detail',
   templateUrl: './income-detail.component.html',
   styleUrls: ['./income-detail.component.css']
 })
-export class IncomeDetailComponent implements OnInit {
+export class IncomeDetailComponent extends Unsubscribe implements OnInit {
 
   @Input() income: Income;
 
@@ -18,6 +19,7 @@ export class IncomeDetailComponent implements OnInit {
     private service: IncomeService,
     private location: Location
   ) {
+    super();
   }
 
   ngOnInit() {
@@ -26,7 +28,8 @@ export class IncomeDetailComponent implements OnInit {
 
   getIncome(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getIncome(id).subscribe(income => this.income = income);
+    this.service.getIncome(id)
+      .subscribe(income => this.income = income);
   }
 
   goBack(): void {

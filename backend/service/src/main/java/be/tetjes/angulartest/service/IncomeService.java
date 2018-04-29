@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -23,7 +25,7 @@ public class IncomeService {
     private IncomeRepository repository;
 
     @Transactional
-    public List<IIncome> getIncomes() {
+    public Collection<IIncome> getIncomes() {
         return repository.findAll().stream()
                 .map(Income.class::cast)
                 .collect(toList());
@@ -39,4 +41,12 @@ public class IncomeService {
         return repository.save(Income.createIncome(command));
     }
 
+    @Transactional
+    public Collection<IIncome> getIncomesPerTeam(String teamName) {
+        Collection<IIncome> incomes = getIncomes()
+                .stream()
+                .filter(income -> teamName.equals(income.getTeam()))
+                .collect(Collectors.toList());
+        return incomes;
+    }
 }

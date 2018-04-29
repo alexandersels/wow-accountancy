@@ -1,5 +1,7 @@
 package be.tetjes.angulartest.api.dto;
 
+import be.tetjes.angulartest.infrastructure.NestedBuilder;
+
 public class RealmDto {
 
     public String name;
@@ -11,36 +13,31 @@ public class RealmDto {
         return new Builder();
     }
 
-    public static class Builder {
+    public static class Builder extends NestedBuilder<RealmDto> {
 
-        private RealmDto realm;
-
-        private Builder() {
-            realm = new RealmDto();
+        @Override
+        protected RealmDto createInstance() {
+            return new RealmDto();
         }
 
         public Builder withName(String name) {
-            realm.name = name;
+            instance().name = name;
             return this;
         }
 
         public Builder withRegion(String region) {
-            realm.region = region;
+            instance().region = region;
             return this;
         }
 
         public Builder withVersion(int version) {
-            realm.version = version;
+            instance().version = version;
             return this;
         }
 
         public Builder withPlayerId(String player) {
-            realm.player = player;
+            instance().player = player;
             return this;
-        }
-
-        public RealmDto build() {
-            return realm;
         }
 
     }

@@ -38,6 +38,7 @@ public class IncomeResource {
                 .withPrice(incomeDto.price)
                 .withDungeon(incomeDto.dungeon)
                 .withRealm(incomeDto.realm)
+                .withTeam(incomeDto.team)
                 .build();
         return mapper.mapToDto(service.createIncome(command));
     }

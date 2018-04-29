@@ -1,0 +1,20 @@
+<div *ngIf="splits">
+  <h2>Splits</h2>
+  <ul class="splits">
+    <li *ngFor="let split of splits">
+      <div>
+        <label>Name: </label> {{split.playerName}}
+      </div>
+      <div>
+        <label>Debt: </label> {{split.debt}} K
+      </div>
+      <div>
+        <label>Amount of Runs: </label> {{split.amountOfRuns}}
+      </div>
+      <div>
+        <label>Total Gold Earned: </label> {{split.totalGoldEarned}} K
+      </div>
+    </li>
+  </ul>
+</div>
+

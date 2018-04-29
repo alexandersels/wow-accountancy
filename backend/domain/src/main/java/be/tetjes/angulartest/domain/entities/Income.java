@@ -1,9 +1,7 @@
 package be.tetjes.angulartest.domain.entities;
 
 import be.tetjes.angulartest.domain.commands.income.CreateIncomeCommand;
-import be.tetjes.angulartest.domain.commands.realm.CreateRealmCommand;
 import be.tetjes.angulartest.iface.IIncome;
-import be.tetjes.angulartest.iface.IRealm;
 import be.tetjes.angulartest.infrastructure.BaseEntity;
 import be.tetjes.angulartest.infrastructure.CommandHandler;
 
@@ -23,6 +21,7 @@ public class Income extends BaseEntity implements IIncome {
                 .withPrice(command.getPrice())
                 .withDate(command.getDate())
                 .withRealm(command.getRealm())
+                .withTeam(command.getTeam())
                 .build();
     }
 
@@ -46,6 +45,9 @@ public class Income extends BaseEntity implements IIncome {
     @Column(name = "realm")
     private String realm;
 
+    @Column(name = "team")
+    private String team;
+
     private Income() {
     }
 
@@ -54,7 +56,9 @@ public class Income extends BaseEntity implements IIncome {
         return new ArrayList<CommandHandler>();
     }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
 
     public String getDungeon() {
         return dungeon;
@@ -64,9 +68,17 @@ public class Income extends BaseEntity implements IIncome {
         return price;
     }
 
-    public Date getDate() {return date;}
+    public Date getDate() {
+        return date;
+    }
 
-    public String getRealm() {return realm; }
+    public String getRealm() {
+        return realm;
+    }
+
+    public String getTeam() {
+        return team;
+    }
 
     public static Income.Builder getBuilder() {
         return new Income.Builder();
@@ -96,6 +108,11 @@ public class Income extends BaseEntity implements IIncome {
 
         public Income.Builder withRealm(String realm) {
             instance().realm = realm;
+            return this;
+        }
+
+        public Income.Builder withTeam(String team) {
+            instance().team = team;
             return this;
         }
     }

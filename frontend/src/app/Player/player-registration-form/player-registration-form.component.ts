@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../../shared/models/player.model';
 import { PlayerService } from '../../shared/services/player.service';
-import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
 
 @Component({
   selector: 'app-player-registration-form',
   templateUrl: './player-registration-form.component.html',
   styleUrls: ['./player-registration-form.component.css']
 })
-export class PlayerRegistrationFormComponent extends Unsubscribable implements OnInit {
+export class PlayerRegistrationFormComponent extends Unsubscribe implements OnInit {
 
   model = new Player();
 
@@ -20,7 +20,8 @@ export class PlayerRegistrationFormComponent extends Unsubscribable implements O
   }
 
   register() {
-    this.service.createPlayer(this.model).subscribe();
+    this.service.createPlayer(this.model)
+      .subscribe();
   }
 
 }

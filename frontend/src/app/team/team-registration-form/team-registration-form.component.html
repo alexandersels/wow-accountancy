@@ -1,0 +1,42 @@
+<h2>Team Registration</h2>
+<form name="form" (ngSubmit)="register()">
+  <div class="form-group">
+    <label for="teamName">Name</label>
+    <input id="teamName" type="text" required [(ngModel)]="team.name" name="teamName"/>
+  </div>
+  <div class="form-group">
+    <label for="playerOne">Player One</label>
+    <select class="form-control" id="playerOne" [(ngModel)]="team.memberOne" name="playerOne" required >
+      <option *ngFor="let player of players" value={{player.name}}>
+        {{player.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="playerTwo">Player Two</label>
+    <select class="form-control" id="playerTwo" [(ngModel)]="team.memberTwo" name="playerTwo" required >
+      <option *ngFor="let player of players" value={{player.name}}>
+        {{player.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="playerThree">Player Three</label>
+    <select class="form-control" id="playerThree" [(ngModel)]="team.memberThree" name="playerThree" required >
+      <option *ngFor="let player of players" value={{player.name}}>
+        {{player.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="playerFour">Player Four</label>
+    <select class="form-control" id="playerFour" [(ngModel)]="team.memberFour" name="playerFour" required >
+      <option *ngFor="let player of players" value={{player.name}}>
+        {{player.name}}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+

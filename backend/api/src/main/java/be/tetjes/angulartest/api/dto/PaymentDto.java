@@ -1,5 +1,7 @@
 package be.tetjes.angulartest.api.dto;
 
+import be.tetjes.angulartest.infrastructure.NestedBuilder;
+
 public class PaymentDto {
 
     public Long id;
@@ -12,41 +14,36 @@ public class PaymentDto {
         return new Builder();
     }
 
-    public static class Builder {
+    public static class Builder extends NestedBuilder<PaymentDto> {
 
-        private PaymentDto payment;
-
-        private Builder() {
-            payment = new PaymentDto();
+        @Override
+        protected PaymentDto createInstance() {
+            return new PaymentDto();
         }
 
         public Builder withId(Long id) {
-            payment.id = id;
+            instance().id = id;
             return this;
         }
 
         public Builder withPrice(int price) {
-            payment.price = price;
+            instance().price = price;
             return this;
         }
 
         public Builder withVersion(int version) {
-            payment.version = version;
+            instance().version = version;
             return this;
         }
 
         public Builder withRealm(String realm) {
-            payment.realm = realm;
+            instance().realm = realm;
             return this;
         }
 
         public Builder withPlayer(String player) {
-            payment.player = player;
+            instance().player = player;
             return this;
-        }
-
-        public PaymentDto build() {
-            return payment;
         }
 
     }

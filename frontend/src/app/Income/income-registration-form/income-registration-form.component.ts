@@ -3,28 +3,44 @@ import { Income } from '../../shared/models/income.model';
 import { IncomeService } from '../../shared/services/income.service';
 import { Realm } from '../../shared/models/realm.model';
 import { RealmService } from '../../shared/services/realm.service';
-import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
+import { Team } from '../../shared/models/team.model';
+import { TeamService } from '../../shared/services/team.service';
 
 @Component({
   selector: 'app-income-registration-form',
   templateUrl: './income-registration-form.component.html',
   styleUrls: ['./income-registration-form.component.css']
 })
-export class IncomeRegistrationFormComponent extends Unsubscribable implements OnInit {
+export class IncomeRegistrationFormComponent extends Unsubscribe implements OnInit {
 
-  income = new Income();
-  realms: Realm[];
+  public income = new Income();
+  public realms: Realm[];
+  public teams: Team[];
 
-  constructor(private incomeService: IncomeService, private realmService: RealmService) {
+  constructor(
+    private incomeService: IncomeService,
+    private realmService: RealmService,
+    private teamService: TeamService)
+  {
     super();
   }
 
-  ngOnInit() {
+  public ngOnInit() {
+    this.fetchRealms();
+    this.fetchTeams();
+  }
+
+  public register() {
+    this.incomeService.createIncome(this.income)
+      .subscribe();
+  }
+
+  private fetchRealms() {
     this.realmService.getRealms().subscribe(realms => this.realms = realms);
   }
 
-  register() {
-    this.incomeService.createIncome(this.income).subscribe();
+  private fetchTeams() {
+    this.teamService.getTeams().subscribe(teams => this.teams = teams);
   }
-
 }

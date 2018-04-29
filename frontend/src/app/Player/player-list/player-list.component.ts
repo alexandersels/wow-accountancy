@@ -1,24 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../shared/services/player.service';
 import { Player } from '../../shared/models/player.model';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
 
 @Component({
   selector: 'app-player-list',
   templateUrl: './player-list.component.html',
   styleUrls: ['./player-list.component.css']
 })
-export class PlayerListComponent implements OnInit {
+export class PlayerListComponent extends Unsubscribe implements OnInit {
 
   players: Player[];
 
-  constructor(private service: PlayerService) { }
+  constructor(private service: PlayerService) {
+    super();
+  }
 
   ngOnInit() {
     this.getPlayers();
   }
 
   getPlayers(): void {
-    this.service.getPlayers().subscribe(players => this.players = players);
+    this.service.getPlayers()
+      .subscribe(players => this.players = players);
   }
 
 

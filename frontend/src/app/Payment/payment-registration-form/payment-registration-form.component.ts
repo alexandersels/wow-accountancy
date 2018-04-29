@@ -5,14 +5,14 @@ import { Realm } from '../../shared/models/realm.model';
 import { RealmService } from '../../shared/services/realm.service';
 import { PlayerService } from '../../shared/services/player.service';
 import { PaymentService } from '../../shared/services/payment.service';
-import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { Unsubscribe } from '../../shared/util/unsubscribe';
 
 @Component({
   selector: 'app-payment-registration-form',
   templateUrl: './payment-registration-form.component.html',
   styleUrls: ['./payment-registration-form.component.css']
 })
-export class PaymentRegistrationFormComponent extends Unsubscribable implements OnInit {
+export class PaymentRegistrationFormComponent extends Unsubscribe implements OnInit {
 
   payment = new Payment();
 
@@ -39,6 +39,7 @@ export class PaymentRegistrationFormComponent extends Unsubscribable implements 
   }
 
   register() {
-    this.paymentService.createPayment(this.payment).subscribe();
+    this.paymentService.createPayment(this.payment)
+      .subscribe();
   }
 }

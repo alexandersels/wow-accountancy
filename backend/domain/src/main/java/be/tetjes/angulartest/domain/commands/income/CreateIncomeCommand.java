@@ -1,5 +1,7 @@
 package be.tetjes.angulartest.domain.commands.income;
 
+import be.tetjes.angulartest.infrastructure.NestedBuilder;
+
 import java.util.Date;
 
 public class CreateIncomeCommand {
@@ -9,6 +11,7 @@ public class CreateIncomeCommand {
     private String dungeon;
     private Date date;
     private String realm;
+    private String team;
 
     private CreateIncomeCommand() {
         this.date = new Date();
@@ -32,31 +35,37 @@ public class CreateIncomeCommand {
         return realm;
     }
 
+    public String getTeam() { return team; }
+
     public static Builder getBuilder() {
         return new Builder();
     }
 
-    public static class Builder {
+    public static class Builder extends NestedBuilder<CreateIncomeCommand> {
 
-        private CreateIncomeCommand command = new CreateIncomeCommand();
+        @Override
+        protected CreateIncomeCommand createInstance() {
+            return new CreateIncomeCommand();
+        }
 
         public Builder withPrice(int price) {
-            command.price = price;
+            instance().price = price;
             return this;
         }
 
         public Builder withDungeon(String dungeon) {
-            command.dungeon = dungeon;
+            instance().dungeon = dungeon;
             return this;
         }
 
         public Builder withRealm(String realm) {
-            command.realm = realm;
+            instance().realm = realm;
             return this;
         }
 
-        public CreateIncomeCommand build() {
-            return command;
+        public Builder withTeam(String team) {
+            instance().team = team;
+            return this;
         }
     }
 

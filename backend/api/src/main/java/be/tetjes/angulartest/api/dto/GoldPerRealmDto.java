@@ -2,7 +2,7 @@ package be.tetjes.angulartest.api.dto;
 
 import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
-public class AvailableGoldPerRealmDto {
+public class GoldPerRealmDto {
 
     public String realm;
     public String player;
@@ -12,11 +12,11 @@ public class AvailableGoldPerRealmDto {
         return new Builder();
     }
 
-    public static class Builder extends NestedBuilder<AvailableGoldPerRealmDto> {
+    public static class Builder extends NestedBuilder<GoldPerRealmDto> {
 
         @Override
-        protected AvailableGoldPerRealmDto createInstance() {
-            return new AvailableGoldPerRealmDto();
+        protected GoldPerRealmDto createInstance() {
+            return new GoldPerRealmDto();
         }
 
         public Builder withRealm(String realm) {

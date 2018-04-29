@@ -1,6 +1,7 @@
 package be.tetjes.angulartest.api.resource;
 
 import be.tetjes.angulartest.api.dto.AvailableGoldDto;
+import be.tetjes.angulartest.api.mapper.AvailableGoldMapper;
 import be.tetjes.angulartest.infrastructure.AvailableGold;
 import be.tetjes.angulartest.service.AvailableGoldService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class AvailableGoldResource {
 
     @Autowired
+    private AvailableGoldMapper mapper;
+
+    @Autowired
     private AvailableGoldService service;
 
     @GetMapping("/availableGold")
-    public AvailableGoldDto getAvilableGold() {
+    public AvailableGoldDto getAvailableGold() {
         AvailableGold availableGold = service.getAvailableGold();
-
-        // Mappertjeeuh
-
-        return null;
+        return mapper.mapToDto(availableGold);
     }
 }

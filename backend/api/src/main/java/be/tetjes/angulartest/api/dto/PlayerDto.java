@@ -1,5 +1,7 @@
 package be.tetjes.angulartest.api.dto;
 
+import be.tetjes.angulartest.infrastructure.NestedBuilder;
+
 public class PlayerDto {
 
     public String name;
@@ -9,26 +11,22 @@ public class PlayerDto {
         return new Builder();
     }
 
-    public static class Builder {
+    public static class Builder extends NestedBuilder<PlayerDto> {
 
-        private PlayerDto player;
-
-        private Builder() {
-            player = new PlayerDto();
+        @Override
+        protected PlayerDto createInstance() {
+            return new PlayerDto();
         }
 
         public Builder withName(String name) {
-            player.name = name;
+            instance().name = name;
             return this;
         }
 
         public Builder withVersion(int version) {
-            player.version = version;
+            instance().version = version;
             return this;
         }
 
-        public PlayerDto build() {
-            return player;
-        }
     }
 }

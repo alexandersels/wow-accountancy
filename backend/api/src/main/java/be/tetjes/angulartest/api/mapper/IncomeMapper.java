@@ -16,6 +16,7 @@ public class IncomeMapper {
                 .withDungeon(income.getDungeon())
                 .withPrice(income.getPrice())
                 .withRealm(income.getRealm())
+                .withTeam(income.getTeam())
                 .withVersion(income.getVersion())
                 .build();
     }

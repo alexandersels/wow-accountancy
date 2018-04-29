@@ -5,6 +5,7 @@ export class Income {
   public price: number;
   public realm: string;
   public id: number;
+  public team: string;
   public date: Date;
 
   constructor() {
