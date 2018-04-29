@@ -8,7 +8,7 @@ import { Player } from '../../shared/models/player.model';
 @Component({
   selector: 'app-team-registration-form',
   templateUrl: './team-registration-form.component.html',
-  styleUrls: ['./team-registration-form.component.css']
+  styleUrls: ['./team-registration-form.component.scss']
 })
 export class TeamRegistrationFormComponent extends Unsubscribe implements OnInit {
 

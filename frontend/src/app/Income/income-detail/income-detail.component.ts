@@ -8,7 +8,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 @Component({
   selector: 'app-income-detail',
   templateUrl: './income-detail.component.html',
-  styleUrls: ['./income-detail.component.css']
+  styleUrls: ['./income-detail.component.scss']
 })
 export class IncomeDetailComponent extends Unsubscribe implements OnInit {
 

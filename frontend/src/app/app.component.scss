@@ -1,0 +1,22 @@
+mat-sidenav-container {
+  height: calc(100% - 100px);
+}
+
+.sidebar-navlist {
+  .nav-item-dink {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header {
+  height: 100px;
+  h1 {
+    margin: 0;
+  }
+}
+
+mat-sidenav {
+  background: #29363d;
+  color: #fff;
+}

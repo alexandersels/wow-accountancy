@@ -6,7 +6,7 @@ import { Team } from '../../shared/models/team.model';
 @Component({
   selector: 'app-team-list',
   templateUrl: './team-list.component.html',
-  styleUrls: ['./team-list.component.css']
+  styleUrls: ['./team-list.component.scss']
 })
 export class TeamListComponent extends Unsubscribe implements OnInit {
 

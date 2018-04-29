@@ -8,7 +8,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 @Component({
   selector: 'app-realm-registration-form',
   templateUrl: './realm-registration-form.component.html',
-  styleUrls: ['./realm-registration-form.component.css']
+  styleUrls: ['./realm-registration-form.component.scss']
 })
 export class RealmRegistrationFormComponent extends Unsubscribe implements OnInit {
 

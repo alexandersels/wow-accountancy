@@ -10,7 +10,7 @@ import { TeamService } from '../../shared/services/team.service';
 @Component({
   selector: 'app-income-registration-form',
   templateUrl: './income-registration-form.component.html',
-  styleUrls: ['./income-registration-form.component.css']
+  styleUrls: ['./income-registration-form.component.scss']
 })
 export class IncomeRegistrationFormComponent extends Unsubscribe implements OnInit {
 

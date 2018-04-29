@@ -6,7 +6,7 @@ import { Unsubscribe } from '../shared/util/unsubscribe';
 @Component({
   selector: 'app-gold-per-server',
   templateUrl: './gold-per-server.component.html',
-  styleUrls: ['./gold-per-server.component.css']
+  styleUrls: ['./gold-per-server.component.scss']
 })
 export class GoldPerServerComponent extends Unsubscribe implements OnInit {
 

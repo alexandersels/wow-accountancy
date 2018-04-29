@@ -6,13 +6,18 @@ import { IncomeService } from './services/income.service';
 import { AvailableGoldService } from './services/available-gold.service';
 import { TeamService } from './services/team.service';
 import { SplitService } from './services/split.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
+
 
 const MODULES = [
-
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule,
+  MatButtonModule
 ];
 
-const COMPONENTS = [
-];
+const COMPONENTS = [];
 
 const SERVICES = [
   PlayerService,
@@ -24,11 +29,9 @@ const SERVICES = [
   SplitService
 ];
 
-const PIPES = [
-];
+const PIPES = [];
 
-const GUARDS = [
-];
+const GUARDS = [];
 
 @NgModule({
   imports: [

@@ -6,7 +6,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 @Component({
   selector: 'app-payment-list',
   templateUrl: './payment-list.component.html',
-  styleUrls: ['./payment-list.component.css']
+  styleUrls: ['./payment-list.component.scss']
 })
 export class PaymentListComponent extends Unsubscribe implements OnInit {
 

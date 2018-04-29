@@ -8,7 +8,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 @Component({
   selector: 'app-player-detail',
   templateUrl: './player-detail.component.html',
-  styleUrls: ['./player-detail.component.css']
+  styleUrls: ['./player-detail.component.scss']
 })
 export class PlayerDetailComponent extends Unsubscribe implements OnInit {
 

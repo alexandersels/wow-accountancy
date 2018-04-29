@@ -6,7 +6,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 @Component({
   selector: 'app-player-registration-form',
   templateUrl: './player-registration-form.component.html',
-  styleUrls: ['./player-registration-form.component.css']
+  styleUrls: ['./player-registration-form.component.scss']
 })
 export class PlayerRegistrationFormComponent extends Unsubscribe implements OnInit {
 

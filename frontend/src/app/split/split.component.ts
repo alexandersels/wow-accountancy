@@ -6,7 +6,7 @@ import { SplitService } from '../shared/services/split.service';
 @Component({
   selector: 'app-split',
   templateUrl: './split.component.html',
-  styleUrls: ['./split.component.css']
+  styleUrls: ['./split.component.scss']
 })
 export class SplitComponent extends Unsubscribe implements OnInit {
 

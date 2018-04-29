@@ -1,16 +1,46 @@
-<h1 class="title">Boostr.IO</h1>
-<nav>
-  <a routerLink="/availablePlayers">Players</a>
-  <a routerLink="/registerPlayer">Register Player</a>
-  <a routerLink="/availableTeams">Teams</a>
-  <a routerLink="/registerTeam">Register Team</a>
-  <a routerLink="/availableRealms">Realms</a>
-  <a routerLink="/registerRealms">Register Realms</a>
-  <a routerLink="/availableIncomes">Incomes</a>
-  <a routerLink="/registerIncome">Register Income</a>
-  <a routerLink="/availablePayments">Payments</a>
-  <a routerLink="/registerPayment">Register Payment</a>
-  <a routerLink="/availableGold">Available Gold</a>
-  <a routerLink="/split">Split</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="header">
+  <h1 class="title">Boostr.IO</h1>
+  <nav>
+    <a routerLink="/availablePlayers">Players</a>
+    <a routerLink="/registerPlayer">Register Player</a>
+    <a routerLink="/availableTeams">Teams</a>
+    <a routerLink="/registerTeam">Register Team</a>
+    <a routerLink="/availableRealms">Realms</a>
+    <a routerLink="/registerRealms">Register Realms</a>
+    <a routerLink="/availableIncomes">Incomes</a>
+    <a routerLink="/registerIncome">Register Income</a>
+    <a routerLink="/availablePayments">Payments</a>
+    <a routerLink="/registerPayment">Register Payment</a>
+    <a routerLink="/availableGold">Available Gold</a>
+    <a routerLink="/split">Split</a>
+  </nav>
+</div>
+
+<mat-sidenav-container [autosize]="true">
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-icon-button (click)="isExpanded = !isExpanded">
+          <mat-icon *ngIf="!isExpanded">chevron_right</mat-icon>
+          <mat-icon *ngIf="isExpanded">chevron_left</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list class="sidebar-navlist">
+      <mat-list-item>
+        <div class="nav-item-dink">
+          <mat-icon>home</mat-icon>
+          <span *ngIf="isExpanded">Home</span>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+

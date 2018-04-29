@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-team-detail',
   templateUrl: './team-detail.component.html',
-  styleUrls: ['./team-detail.component.css']
+  styleUrls: ['./team-detail.component.scss']
 })
 export class TeamDetailComponent extends Unsubscribe implements OnInit {
 

@@ -6,7 +6,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 @Component({
   selector: 'app-realm-list',
   templateUrl: './realm-list.component.html',
-  styleUrls: ['./realm-list.component.css']
+  styleUrls: ['./realm-list.component.scss']
 })
 export class RealmListComponent extends Unsubscribe implements OnInit {
 
