@@ -1,9 +1,24 @@
-<h2>My Incomes</h2>
-
-<ul class="incomes">
-  <li *ngFor="let income of incomes">
-    <a routerLink="/income/{{income.id}}">
-      <label>{{income.id}} | {{income.price}}</label>
-    </a>
-  </li>
-</ul>
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availableIncomes">
+        <span class="selected">Incomes</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerIncome">
+        <span>Register</span>
+      </a>
+    </li>
+  </ol>
+  <ul class="incomes">
+    <li *ngFor="let income of incomes">
+      <a routerLink="/income/{{income.id}}">
+        <label>{{income.id}} | {{income.price}}</label>
+      </a>
+    </li>
+  </ul>
+</main>

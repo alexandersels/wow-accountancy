@@ -1,5 +1,19 @@
-<h2>My Teams</h2>
-
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availableTeams">
+        <span class="selected">Teams</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerTeam">
+        <span>Register</span>
+      </a>
+    </li>
+  </ol>
 <ul class="teams">
   <li *ngFor="let team of teams">
     <a routerLink="/team/{{team.name}}">
@@ -7,3 +21,4 @@
     </a>
   </li>
 </ul>
+</main>

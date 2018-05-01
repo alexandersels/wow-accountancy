@@ -1,25 +1,40 @@
-<h2>Payment Registration</h2>
-<form name="form" (ngSubmit)="register()">
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input id="price" type="number" required [(ngModel)]="payment.price" name="price"/>
-  </div>
-  <div class="form-group">
-    <label for="playerName">Player</label>
-    <select class="form-control" id="playerName" [(ngModel)]="payment.player" name="player" required>
-      <option *ngFor="let player of players" value={{player.name}}>
-        {{player.name}}
-      </option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="realmName">Realm</label>
-    <select class="form-control" id="realmName" [(ngModel)]="payment.realm" name="realm" required>
-      <option *ngFor="let realm of realms" value={{realm.name}}>
-        {{realm.name}}
-      </option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-success">Submit</button>
-</form>
-
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availablePayments">
+        <span>Payments</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerPayment">
+        <span class="selected">Register</span>
+      </a>
+    </li>
+  </ol>
+  <form name="form" (ngSubmit)="register()">
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" type="number" required [(ngModel)]="payment.price" name="price"/>
+    </div>
+    <div class="form-group">
+      <label for="playerName">Player</label>
+      <select class="form-control" id="playerName" [(ngModel)]="payment.player" name="player" required>
+        <option *ngFor="let player of players" value={{player.name}}>
+          {{player.name}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="realmName">Realm</label>
+      <select class="form-control" id="realmName" [(ngModel)]="payment.realm" name="realm" required>
+        <option *ngFor="let realm of realms" value={{realm.name}}>
+          {{realm.name}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</main>

@@ -4,6 +4,7 @@ import { PlayerService } from '../../shared/services/player.service';
 import { RealmService } from '../../shared/services/realm.service';
 import { Player } from '../../shared/models/player.model';
 import { Unsubscribe } from '../../shared/util/unsubscribe';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-realm-registration-form',
@@ -15,9 +16,24 @@ export class RealmRegistrationFormComponent extends Unsubscribe implements OnIni
   model = new Realm();
   players: Player[];
 
+  form: FormGroup;
+
+  playerName = new FormControl('', Validators.required);
+  realmName = new FormControl('', Validators.required);
+  regionName = new FormControl('', Validators.required);
+
   constructor(private playerService: PlayerService,
-              private realmService: RealmService) {
+              private realmService: RealmService,
+              private fb: FormBuilder) {
     super();
+
+    this.form = fb.group(
+      {
+        'realmName': this.realmName,
+        'playerName': this.playerName,
+        'regionName': this.regionName
+      }
+    )
   }
 
   ngOnInit() {
@@ -25,8 +41,7 @@ export class RealmRegistrationFormComponent extends Unsubscribe implements OnIni
   }
 
   getPlayers(): void {
-    this.playerService.getPlayers()
-      .subscribe(users => this.players = users);
+    this.playerService.getPlayers().subscribe(users => this.players = users);
   }
 
   register() {

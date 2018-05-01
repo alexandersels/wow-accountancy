@@ -1,5 +1,19 @@
-<h2>My Payments</h2>
-
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availablePayments">
+        <span class="selected">Payments</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerPayment">
+        <span>Register</span>
+      </a>
+    </li>
+  </ol>
 <ul class="payments">
   <li *ngFor="let payment of payments">
     <a routerLink="/payment/{{payment.id}}">
@@ -7,3 +21,4 @@
     </a>
   </li>
 </ul>
+</main>

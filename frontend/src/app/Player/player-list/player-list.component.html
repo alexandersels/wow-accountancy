@@ -1,9 +1,25 @@
-<h2>My Players</h2>
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availablePlayers">
+        <span class="selected">Players</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerPlayer">
+        <span>Register</span>
+      </a>
+    </li>
+  </ol>
 
-<ul class="players">
-  <li *ngFor="let player of players">
-    <a routerLink="/player/{{player.name}}">
-      <label>{{player.name}}</label>
-    </a>
-  </li>
-</ul>
+  <ul class="players">
+    <li *ngFor="let player of players">
+      <a routerLink="/player/{{player.name}}">
+        <span>{{player.name}}</span>
+      </a>
+    </li>
+  </ul>
+</main>

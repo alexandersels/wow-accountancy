@@ -1,42 +1,74 @@
 <div class="header">
-  <h1 class="title">Boostr.IO</h1>
-  <nav>
-    <a routerLink="/availablePlayers">Players</a>
-    <a routerLink="/registerPlayer">Register Player</a>
-    <a routerLink="/availableTeams">Teams</a>
-    <a routerLink="/registerTeam">Register Team</a>
-    <a routerLink="/availableRealms">Realms</a>
-    <a routerLink="/registerRealms">Register Realms</a>
-    <a routerLink="/availableIncomes">Incomes</a>
-    <a routerLink="/registerIncome">Register Income</a>
-    <a routerLink="/availablePayments">Payments</a>
-    <a routerLink="/registerPayment">Register Payment</a>
-    <a routerLink="/availableGold">Available Gold</a>
-    <a routerLink="/split">Split</a>
-  </nav>
+  <h1>Boostr.IO</h1>
 </div>
 
-<mat-sidenav-container [autosize]="true">
+<mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" [opened]="true">
     <mat-nav-list>
       <mat-list-item>
-        <button mat-icon-button (click)="isExpanded = !isExpanded">
-          <mat-icon *ngIf="!isExpanded">chevron_right</mat-icon>
-          <mat-icon *ngIf="isExpanded">chevron_left</mat-icon>
-        </button>
-      </mat-list-item>
-    </mat-nav-list>
-    <mat-nav-list class="sidebar-navlist">
-      <mat-list-item>
         <div class="nav-item-dink">
           <mat-icon>home</mat-icon>
-          <span *ngIf="isExpanded">Home</span>
+          <span>Home</span>
         </div>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/availablePlayers">
+        <div class="nav-item-dink">
+          <mat-icon>person</mat-icon>
+          <span>Players</span>
+        </div>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/availableTeams">
+          <div class="nav-item-dink">
+            <mat-icon>vibration</mat-icon>
+            <span>Teams</span>
+          </div>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/availableRealms">
+          <div class="nav-item-dink">
+            <mat-icon>language</mat-icon>
+            <span>Realms</span>
+          </div>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/availableIncomes">
+          <div class="nav-item-dink">
+            <mat-icon>euro_symbol</mat-icon>
+            <span>Incomes</span>
+          </div>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/availablePayments">
+          <div class="nav-item-dink">
+            <mat-icon>credit_card</mat-icon>
+            <span>Payments</span>
+          </div>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/availableGold">
+          <div class="nav-item-dink">
+            <mat-icon>trending_up</mat-icon>
+            <span>Gold</span>
+          </div>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/split">
+          <div class="nav-item-dink">
+            <mat-icon>insert_chart</mat-icon>
+            <span>Split</span>
+          </div>
+        </a>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
-
-
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

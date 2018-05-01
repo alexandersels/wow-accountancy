@@ -1,42 +1,58 @@
-<h2>Income Registration</h2>
-<form name="form" (ngSubmit)="register()">
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input id="price" type="number" required [(ngModel)]="income.price" name="price"/>
-  </div>
-  <div class="form-group">
-    <label for="dungeonName">Dungeon Name</label>
-    <select class="form-control" id="dungeonName" [(ngModel)]="income.dungeon" name="dungeon" required >
-      <option>Black Rook Hold</option>
-      <option>Cathedral of Eternal Night</option>
-      <option>Court of Stars</option>
-      <option>Darkheart Thicket</option>
-      <option>Eye of Azshara</option>
-      <option>Halls of Valor</option>
-      <option>Karazhan Lower</option>
-      <option>Karazhan Upper</option>
-      <option>Maw of Souls</option>
-      <option>Neltharion's Lair</option>
-      <option>Seat of Triumvirate</option>
-      <option>The Arcway</option>
-      <option>Vault of the Wardens</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="teamName">Team</label>
-    <select class="form-control" id="teamName" [(ngModel)]="income.team" name="team" required>
-      <option *ngFor="let team of teams" value={{team.name}}>
-        {{team.name}}
-      </option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="realmName">Realm</label>
-    <select class="form-control" id="realmName" [(ngModel)]="income.realm" name="realm" required>
-      <option *ngFor="let realm of realms" value={{realm.name}}>
-        {{realm.name}}
-      </option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-success">Submit</button>
-</form>
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availableIncomes">
+        <span>Incomes</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerIncome">
+        <span class="selected">Register</span>
+      </a>
+    </li>
+  </ol>
+  <form name="form" (ngSubmit)="register()">
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" type="number" required [(ngModel)]="income.price" name="price"/>
+    </div>
+    <div class="form-group">
+      <label for="dungeonName">Dungeon Name</label>
+      <select class="form-control" id="dungeonName" [(ngModel)]="income.dungeon" name="dungeon" required>
+        <option>Black Rook Hold</option>
+        <option>Cathedral of Eternal Night</option>
+        <option>Court of Stars</option>
+        <option>Darkheart Thicket</option>
+        <option>Eye of Azshara</option>
+        <option>Halls of Valor</option>
+        <option>Karazhan Lower</option>
+        <option>Karazhan Upper</option>
+        <option>Maw of Souls</option>
+        <option>Neltharion's Lair</option>
+        <option>Seat of Triumvirate</option>
+        <option>The Arcway</option>
+        <option>Vault of the Wardens</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="teamName">Team</label>
+      <select class="form-control" id="teamName" [(ngModel)]="income.team" name="team" required>
+        <option *ngFor="let team of teams" value={{team.name}}>
+          {{team.name}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="realmName">Realm</label>
+      <select class="form-control" id="realmName" [(ngModel)]="income.realm" name="realm" required>
+        <option *ngFor="let realm of realms" value={{realm.name}}>
+          {{realm.name}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</main>

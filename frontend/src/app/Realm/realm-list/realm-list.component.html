@@ -1,5 +1,19 @@
-<h2>My Realms</h2>
-
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availableRealms">
+        <span class="selected">Realms</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerRealms">
+        <span>Register</span>
+      </a>
+    </li>
+  </ol>
 <ul class="realms">
   <li *ngFor="let realm of realms">
     <a routerLink="/realm/{{realm.name}}">
@@ -7,3 +21,4 @@
     </a>
   </li>
 </ul>
+</main>

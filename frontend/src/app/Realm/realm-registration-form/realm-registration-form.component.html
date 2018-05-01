@@ -1,26 +1,70 @@
-<h2>Realm Registration</h2>
-<form name="form" (ngSubmit)="register()">
-  <div class="form-group">
-    <label for="realmName">Name</label>
-    <input id="realmName" type="text" required [(ngModel)]="model.name" name="realName"/>
-  </div>
-  <div class="form-group">
-    <label for="regionName">Region</label>
-    <select class="form-control" id="regionName" required [(ngModel)]="model.region" name="region">
-      <option>English</option>
-      <option>German</option>
-      <option>Russian</option>
-      <option>French</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="playerName">Player</label>
-    <select class="form-control" id="playerName" [(ngModel)]="model.player" name="player">
-      <option *ngFor="let player of players" value={{player.name}}>
-        {{player.name}}
-      </option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-success">Submit</button>
-</form>
+<main class="main">
 
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home</span>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/availableRealms">
+        <span>Realms</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/registerRealm">
+        <span class="selected">Register</span>
+      </a>
+    </li>
+  </ol>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card-body p-4">
+          <div class="card mx-4">
+            <h1>Register</h1>
+            <p class="text-muted">Create a Realm</p>
+            <form [formGroup]="form" (ngSubmit)="register()">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">
+                    <mat-icon>language</mat-icon>
+                  </span>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="model.name" placeholder="Realm Name" formControlName="realmName">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">
+                    <mat-icon>flag</mat-icon>
+                  </span>
+                </div>
+                <select class="form-control" [(ngModel)]="model.region" formControlName="regionName">
+                  <option class="text-muted" value="" disabled selected>Select a Region</option>
+                  <option>English</option>
+                  <option>German</option>
+                  <option>Russian</option>
+                  <option>French</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">
+                    <mat-icon>person</mat-icon>
+                  </span>
+                </div>
+                <select class="form-control" [(ngModel)]="model.player" formControlName="playerName">
+                  <option class="text-muted" value="" disabled selected>Select a Player</option>
+                  <option *ngFor="let player of players" value={{player.name}}>
+                    {{player.name}}
+                  </option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

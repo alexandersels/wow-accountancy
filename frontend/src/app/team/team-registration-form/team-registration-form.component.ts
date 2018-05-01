@@ -4,6 +4,7 @@ import { TeamService } from '../../shared/services/team.service';
 import { Team } from '../../shared/models/team.model';
 import { PlayerService } from '../../shared/services/player.service';
 import { Player } from '../../shared/models/player.model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-team-registration-form',
@@ -15,10 +16,29 @@ export class TeamRegistrationFormComponent extends Unsubscribe implements OnInit
   public team = new Team();
   public players: Player[];
 
+  form: FormGroup;
+
+  teamName = new FormControl('', Validators.required);
+  playerOne = new FormControl('', Validators.required);
+  playerTwo = new FormControl('', Validators.required);
+  playerThree = new FormControl('', Validators.required);
+  playerFour = new FormControl('', Validators.required);
+
   constructor(private teamService: TeamService,
-              private playerService: PlayerService)
+              private playerService: PlayerService,
+              private fb: FormBuilder)
   {
     super();
+
+    this.form = fb.group(
+      {
+        "teamName" : this.teamName,
+        "playerOne" : this.playerOne,
+        "playerTwo" : this.playerTwo,
+        "playerThree" : this.playerThree,
+        "playerFour" : this.playerFour,
+      }
+    );
   }
 
   ngOnInit() {
