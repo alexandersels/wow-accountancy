@@ -6,6 +6,7 @@ import { RealmService } from '../../shared/services/realm.service';
 import { Unsubscribe } from '../../shared/util/unsubscribe';
 import { Team } from '../../shared/models/team.model';
 import { TeamService } from '../../shared/services/team.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-income-registration-form',
@@ -14,16 +15,32 @@ import { TeamService } from '../../shared/services/team.service';
 })
 export class IncomeRegistrationFormComponent extends Unsubscribe implements OnInit {
 
-  public income = new Income();
-  public realms: Realm[];
-  public teams: Team[];
+  income = new Income();
+  realms: Realm[];
+  teams: Team[];
+
+  form: FormGroup;
+
+  dungeonName = new FormControl('', Validators.required);
+  teamName = new FormControl('', Validators.required);
+  realmName = new FormControl('', Validators.required);
+  priceName = new FormControl('', Validators.required);
 
   constructor(
     private incomeService: IncomeService,
     private realmService: RealmService,
-    private teamService: TeamService)
-  {
+    private teamService: TeamService,
+    private fb: FormBuilder) {
+
     super();
+    this.form = this.fb.group(
+      {
+        'dungeonName': this.dungeonName,
+        'teamName': this.teamName,
+        'realmName': this.realmName,
+        'priceName': this.priceName
+      },
+    );
   }
 
   public ngOnInit() {

@@ -6,6 +6,7 @@ import { RealmService } from '../../shared/services/realm.service';
 import { PlayerService } from '../../shared/services/player.service';
 import { PaymentService } from '../../shared/services/payment.service';
 import { Unsubscribe } from '../../shared/util/unsubscribe';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-registration-form',
@@ -19,10 +20,26 @@ export class PaymentRegistrationFormComponent extends Unsubscribe implements OnI
   players: Player[];
   realms: Realm[];
 
+  form: FormGroup;
+
+  playerName = new FormControl('', Validators.required);
+  realmName = new FormControl('', Validators.required);
+  priceName = new FormControl('', Validators.required);
+
   constructor(private realmService: RealmService,
               private playerService: PlayerService,
-              private paymentService: PaymentService) {
+              private paymentService: PaymentService,
+              private fb: FormBuilder) {
     super();
+
+    this.form = this.fb.group(
+      {
+        'playerName': this.playerName,
+        'realmName': this.realmName,
+        'priceName': this.priceName
+      }
+    );
+
   }
 
   ngOnInit() {

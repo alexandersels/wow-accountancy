@@ -14,27 +14,55 @@
       </a>
     </li>
   </ol>
-  <form name="form" (ngSubmit)="register()">
-    <div class="form-group">
-      <label for="price">Price</label>
-      <input id="price" type="number" required [(ngModel)]="payment.price" name="price"/>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card-body p-4">
+          <div class="card mx-4">
+            <h1>Register</h1>
+            <p class="text-muted">Create a payment</p>
+            <form [formGroup]="form" (ngSubmit)="register()">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">
+                    <mat-icon>euro_symbol</mat-icon>
+                  </span>
+                </div>
+                <input type="number" class="form-control" [(ngModel)]="payment.price" placeholder="Price" formControlName="priceName">
+                <span class="input-group-text">
+                  K
+                </span>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">
+                    <mat-icon>person</mat-icon>
+                  </span>
+                </div>
+                <select class="form-control" [(ngModel)]="payment.player"  formControlName="playerName">
+                  <option class="text-muted" value="" disabled selected>Select a Player</option>
+                  <option *ngFor="let player of players" value={{player.name}}>
+                    {{player.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">
+                    <mat-icon>language</mat-icon>
+                  </span>
+                </div>
+                <select class="form-control" [(ngModel)]="payment.realm" formControlName="realmName">
+                  <option *ngFor="let realm of realms" value={{realm.name}}>
+                    {{realm.name}}
+                  </option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="playerName">Player</label>
-      <select class="form-control" id="playerName" [(ngModel)]="payment.player" name="player" required>
-        <option *ngFor="let player of players" value={{player.name}}>
-          {{player.name}}
-        </option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="realmName">Realm</label>
-      <select class="form-control" id="realmName" [(ngModel)]="payment.realm" name="realm" required>
-        <option *ngFor="let realm of realms" value={{realm.name}}>
-          {{realm.name}}
-        </option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+  </div>
 </main>
