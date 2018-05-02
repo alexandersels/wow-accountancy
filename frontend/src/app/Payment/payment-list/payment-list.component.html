@@ -14,11 +14,37 @@
       </a>
     </li>
   </ol>
-<ul class="payments">
-  <li *ngFor="let payment of payments">
-    <a routerLink="/payment/{{payment.id}}">
-      <label>{{payment.realm}} | {{payment.price}}</label>
-    </a>
-  </li>
-</ul>
+
+  <div class="card">
+    <div class="card-body">
+      <h1>Registered Payments</h1>
+      <table class="table table-responsive-sm table-hover table-outline mb-0">
+        <thead class="thead-light">
+        <tr>
+          <th>ID</th>
+          <th>Price</th>
+          <th>Player</th>
+          <th>Realm</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let payement of payments">
+          <td class="text-center">
+            <div>{{payement.id}}</div>
+          </td>
+          <td class="text-center">
+            <div>{{payement.price}} K</div>
+          </td>
+          <td class="text-center">
+            <div>{{payement.player}}</div>
+          </td>
+          <td class="text-center">
+            <div>{{payement.realm}}</div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </main>

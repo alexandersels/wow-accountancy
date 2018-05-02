@@ -249,6 +249,44 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
+.table-outline {
+  border: 1px solid #a4b7c1;
+}
+
+.table .thead-light th {
+  color: #3e515b;
+  background-color: #c2cfd6;
+  border-color: #a4b7c1;
+}
+
+.table th, .table td {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #a4b7c1;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  display: table;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+
+
 
 
 
