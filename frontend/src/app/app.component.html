@@ -1,78 +1,45 @@
-<div class="header">
+<header class="appHeader">
   <h1>Boostr.IO</h1>
-</div>
+</header>
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" [opened]="true">
-    <mat-nav-list>
-      <mat-list-item>
-        <div class="nav-item-dink">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-        </div>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/availablePlayers">
-        <div class="nav-item-dink">
-          <mat-icon>person</mat-icon>
-          <span>Players</span>
-        </div>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/availableTeams">
-          <div class="nav-item-dink">
-            <mat-icon>vibration</mat-icon>
-            <span>Teams</span>
-          </div>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/availableRealms">
-          <div class="nav-item-dink">
-            <mat-icon>language</mat-icon>
-            <span>Realms</span>
-          </div>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/availableIncomes">
-          <div class="nav-item-dink">
-            <mat-icon>euro_symbol</mat-icon>
-            <span>Incomes</span>
-          </div>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/availablePayments">
-          <div class="nav-item-dink">
-            <mat-icon>credit_card</mat-icon>
-            <span>Payments</span>
-          </div>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/availableGold">
-          <div class="nav-item-dink">
-            <mat-icon>trending_up</mat-icon>
-            <span>Gold</span>
-          </div>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/split">
-          <div class="nav-item-dink">
-            <mat-icon>insert_chart</mat-icon>
-            <span>Split</span>
-          </div>
-        </a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
+<div class="appWrapper">
+  <div class="appNavWrapper">
+    <a>
+      <i class="material-icons">home</i>
+      Home
+    </a>
+    <a routerLink="/availablePlayers">
+      <i class="material-icons">person</i>
+      Players
+    </a>
+    <a routerLink="/availableTeams">
+      <i class="material-icons">vibration</i>
+      Teams
+    </a>
+    <a routerLink="/availableRealms">
+      <i class="material-icons">language</i>
+      Realms
+    </a>
+    <a routerLink="/availableIncomes">
+      <i class="material-icons">euro_symbol</i>
+      Incomes
+    </a>
+    <a routerLink="/availablePayments">
+      <i class="material-icons">credit_card</i>
+      Payments
+    </a>
+    <a routerLink="/availableGold">
+      <i class="material-icons">trending_up</i>
+      Gold
+    </a>
+    <a routerLink="/split">
+      <i class="material-icons">insert_chart</i>
+      Split
+    </a>
+  </div>
+  <div class="appContentWrapper">
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-
-</mat-sidenav-container>
+  </div>
+</div>
 
 

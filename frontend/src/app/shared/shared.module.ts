@@ -6,17 +6,11 @@ import { IncomeService } from './services/income.service';
 import { AvailableGoldService } from './services/available-gold.service';
 import { TeamService } from './services/team.service';
 import { SplitService } from './services/split.service';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import {ReactiveFormsModule} from "@angular/forms";
 
 
 const MODULES = [
-  MatSidenavModule,
-  MatListModule,
-  MatIconModule,
-  MatButtonModule,
   MatInputModule,
   ReactiveFormsModule
 ];
