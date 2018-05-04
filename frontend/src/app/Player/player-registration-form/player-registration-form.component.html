@@ -1,4 +1,4 @@
-<main class="main">
+<main class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <span>Home</span>
@@ -15,28 +15,21 @@
     </li>
   </ol>
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card-body p-4">
-          <div class="card mx-4">
-            <h1>Register</h1>
-            <p class="text-muted">Create a player</p>
-            <form [formGroup]="form" (ngSubmit)="register()">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <!--   <mat-icon>person</mat-icon> -->
-                  </span>
-                </div>
-                <input type="text" class="form-control" placeholder="Player Name" formControlName="playerName">
-              </div>
-              <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
-            </form>
-          </div>
+  <div class="pageWrapper">
+    <h1 class="formTitle">Register</h1>
+    <p class="text-muted">Create a player</p>
+    <form [formGroup]="form" (ngSubmit)="register()">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">person</i>
+          </span>
         </div>
+        <input type="text" class="form-control" placeholder="Player Name" formControlName="playerName">
       </div>
-    </div>
+      <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
+    </form>
+
   </div>
 
 

@@ -1,4 +1,4 @@
-<main class="main">
+<main class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <span>Home</span>
@@ -15,79 +15,70 @@
     </li>
   </ol>
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card-body p-4">
-          <div class="card mx-4">
-            <h1>Register</h1>
-            <p class="text-muted">Create an income</p>
-            <form [formGroup]="form" (ngSubmit)="register()">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                   <!-- <mat-icon>euro_symbol</mat-icon> -->
-                  </span>
-                </div>
-                <input type="number" class="form-control" [(ngModel)]="income.price" placeholder="Price" formControlName="priceName">
-                <span class="input-group-text">
-                  K
-                </span>
-              </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                   <!-- <mat-icon>group</mat-icon> -->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="income.dungeon" formControlName="dungeonName">
-                  <option class="text-muted" value="" disabled selected>Select a Dungeon</option>
-                  <option>Black Rook Hold</option>
-                  <option>Cathedral of Eternal Night</option>
-                  <option>Court of Stars</option>
-                  <option>Darkheart Thicket</option>
-                  <option>Eye of Azshara</option>
-                  <option>Halls of Valor</option>
-                  <option>Karazhan Lower</option>
-                  <option>Karazhan Upper</option>
-                  <option>Maw of Souls</option>
-                  <option>Neltharion's Lair</option>
-                  <option>Seat of Triumvirate</option>
-                  <option>The Arcway</option>
-                  <option>Vault of the Wardens</option>
-                </select>
-              </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <!--  <mat-icon>public</mat-icon>-->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="income.team"  formControlName="teamName">
-                  <option class="text-muted" value="" disabled selected>Select a Team</option>
-                  <option *ngFor="let team of teams" value={{team.name}}>
-                    {{team.name}}
-                  </option>
-                </select>
-              </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <!--  <mat-icon>language</mat-icon>-->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="income.realm" formControlName="realmName">
-                  <option class="text-muted" value="" disabled selected>Select a Realm</option>
-                  <option *ngFor="let realm of realms" value={{realm.name}}>
-                    {{realm.name}}
-                  </option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
-            </form>
-          </div>
+  <div class="pageWrapper">
+    <h1 class="formTitle">Register</h1>
+    <p class="text-muted">Create an income</p>
+    <form [formGroup]="form" (ngSubmit)="register()">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">euro_symbol</i>
+          </span>
         </div>
+        <input type="number" class="form-control" [(ngModel)]="income.price" placeholder="Price"
+               formControlName="priceName">
+        <span class="input-group-text"> K </span>
       </div>
-    </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+              <i class="material-icons">group</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="income.dungeon" formControlName="dungeonName">
+          <option class="text-muted" value="" disabled selected>Select a Dungeon</option>
+          <option>Black Rook Hold</option>
+          <option>Cathedral of Eternal Night</option>
+          <option>Court of Stars</option>
+          <option>Darkheart Thicket</option>
+          <option>Eye of Azshara</option>
+          <option>Halls of Valor</option>
+          <option>Karazhan Lower</option>
+          <option>Karazhan Upper</option>
+          <option>Maw of Souls</option>
+          <option>Neltharion's Lair</option>
+          <option>Seat of Triumvirate</option>
+          <option>The Arcway</option>
+          <option>Vault of the Wardens</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">public</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="income.team" formControlName="teamName">
+          <option class="text-muted" value="" disabled selected>Select a Team</option>
+          <option *ngFor="let team of teams" value={{team.name}}>
+            {{team.name}}
+          </option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">language</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="income.realm" formControlName="realmName">
+          <option class="text-muted" value="" disabled selected>Select a Realm</option>
+          <option *ngFor="let realm of realms" value={{realm.name}}>
+            {{realm.name}}
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
+    </form>
   </div>
 </main>

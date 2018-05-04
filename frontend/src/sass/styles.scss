@@ -29,6 +29,7 @@ a {
 }
 
 .breadcrumb {
+  border-top: 1px solid #a4b7c1;
   border-bottom: 1px solid #a4b7c1;
   align-items: center;
   display: flex;
@@ -70,7 +71,7 @@ a {
 
   .formTitle, .tableTitle {
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 
   form, .formTitle, .text-muted {
@@ -82,10 +83,13 @@ a {
   .form-control {
     padding: .375rem .75rem;
     width: 100%;
+    border: 0.5px solid #c2cfd6;
   }
 
   .input-group {
+    box-sizing: border-box;
     display: flex;
+    padding-bottom: 10px;
   }
 
   .input-group-text {
@@ -99,8 +103,12 @@ a {
     color: white;
     text-align: center;
     white-space: nowrap;
-    background-color: $primary-color;
-    border: 1px solid $primary-color;
+    background-color: white;
+    border: 0.5px solid #c2cfd6;
+
+    i {
+      color: gray;
+    }
   }
 
   .btn:not(:enabled) {
@@ -123,6 +131,7 @@ a {
   }
 
   .btn-success {
+    box-sizing: border-box;
     color: #fff;
     background-color: #4dbd74;
     border-color: #4dbd74;
@@ -167,45 +176,7 @@ a {
   }
 }
 
-.tableHeader {
 
-  background-color: coral;
-  width: 400px;
-  display: flex;
-
-  p {
-    margin: 0;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    width: calc(100% / 3);
-    text-align: center;
-    font-weight: 700;
-  }
-}
-
-.tableContent {
-
-  max-height: calc(100vh - 39px);
-  overflow-y: scroll;
-  margin-right: -17px;
-  width: 400px;
-  .tableData {
-    display: flex;
-    border: 1px solid coral;
-    border-top: 0;
-    p {
-      margin: 0;
-      padding: 10px 15px;
-      box-sizing: border-box;
-      width: calc(100% / 3);
-      text-align: center;
-
-      & + p {
-        border-left: 1px solid coral;
-      }
-    }
-  }
-}
 
 
 

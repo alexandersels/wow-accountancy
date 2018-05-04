@@ -1,4 +1,4 @@
-<main class="main">
+<main class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <span>Home</span>
@@ -15,87 +15,72 @@
     </li>
   </ol>
 
-
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card-body p-4">
-          <div class="card mx-4">
-            <h1>Register</h1>
-            <p class="text-muted">Create a Team</p>
-            <form [formGroup]="form" (ngSubmit)="register()">
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <!--  <mat-icon>group</mat-icon> -->
-                  </span>
-                </div>
-                <input type="text" class="form-control" [(ngModel)]="team.name" placeholder="Team Name" formControlName="teamName">
-              </div>
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <!--  <mat-icon>person</mat-icon> -->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="team.memberOne" formControlName="playerOne">
-                  <option class="text-muted" value="" disabled selected>Select a Player</option>
-                  <option *ngFor="let player of players" value={{player.name}}>
-                    {{player.name}}
-                  </option>
-                </select>
-              </div>
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                 <!--   <mat-icon>person</mat-icon> -->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="team.memberTwo" formControlName="playerTwo">
-                  <option class="text-muted" value="" disabled selected>Select a Player</option>
-                  <option *ngFor="let player of players" value={{player.name}}>
-                    {{player.name}}
-                  </option>
-                </select>
-              </div>
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <!--   <mat-icon>person</mat-icon> -->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="team.memberThree" formControlName="playerThree">
-                  <option class="text-muted" value=""  selected>Select a Player</option>
-                  <option *ngFor="let player of players" value={{player.name}}>
-                    {{player.name}}
-                  </option>
-                </select>
-              </div>
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                 <span class="input-group-text">
-                   <!--  <mat-icon>person</mat-icon> -->
-                  </span>
-                </div>
-                <select class="form-control" [(ngModel)]="team.memberFour" formControlName="playerFour">
-                  <option class="text-muted" value="" disabled selected>Select a Player</option>
-                  <option *ngFor="let player of players" value={{player.name}}>
-                    {{player.name}}
-                  </option>
-                </select>
-              </div>
-
-              <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
-            </form>
-          </div>
+  <div class="pageWrapper">
+    <h1 class="formTitle">Register</h1>
+    <p class="text-muted">Create a Team</p>
+    <form [formGroup]="form" (ngSubmit)="register()">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">group</i>
+          </span>
         </div>
+        <input type="text" class="form-control" [(ngModel)]="team.name" placeholder="Team Name" formControlName="teamName">
       </div>
-    </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">person</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="team.memberOne" formControlName="playerOne">
+          <option class="text-muted" value="" disabled selected>Select a Player</option>
+          <option *ngFor="let player of players" value={{player.name}}>
+            {{player.name}}
+          </option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">person</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="team.memberTwo" formControlName="playerTwo">
+          <option class="text-muted" value="" disabled selected>Select a Player</option>
+          <option *ngFor="let player of players" value={{player.name}}>
+            {{player.name}}
+          </option>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">person</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="team.memberThree" formControlName="playerThree">
+          <option class="text-muted" value="" selected>Select a Player</option>
+          <option *ngFor="let player of players" value={{player.name}}>
+            {{player.name}}
+          </option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">person</i>
+          </span>
+        </div>
+        <select class="form-control" [(ngModel)]="team.memberFour" formControlName="playerFour">
+          <option class="text-muted" value="" disabled selected>Select a Player</option>
+          <option *ngFor="let player of players" value={{player.name}}>
+            {{player.name}}
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-block btn-success" [disabled]="!form.valid">Submit</button>
+    </form>
   </div>
 
 </main>
