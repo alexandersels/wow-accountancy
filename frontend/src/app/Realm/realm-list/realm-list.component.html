@@ -1,7 +1,9 @@
 <div class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <span>Home</span>
+      <a routerLink="/home">
+        <span>Home</span>
+      </a>
     </li>
     <li class="breadcrumb-item">
       <a routerLink="/availableRealms">
@@ -16,14 +18,17 @@
   </ol>
   <div class="pageWrapper">
     <h1 class="tableTitle">Registered Realms</h1>
+    <input [(ngModel)]="searchText" placeholder="Search for realm">
     <div class="tableWrapper">
       <div class="tableHeader">
         <p>Realm Name</p>
+        <button (click)="setSortType('name')">Sort</button>
         <p>Region</p>
         <p>Player</p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let realm of realms">
+        <div class="tableData"
+             *ngFor="let realm of (realms | realmFilter: searchText | realmSort:sortType:sortReverse )">
           <p>{{realm.name}}</p>
           <p>{{realm.region}}</p>
           <p>{{realm.player}}</p>

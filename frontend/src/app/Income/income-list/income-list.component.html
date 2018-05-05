@@ -1,7 +1,9 @@
 <div class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <span>Home</span>
+      <a routerLink="/home">
+        <span>Home</span>
+      </a>
     </li>
     <li class="breadcrumb-item">
       <a routerLink="/availableIncomes">
@@ -29,7 +31,7 @@
         <div class="tableData" *ngFor="let income of incomes">
           <p>{{income.id}}</p>
           <p>{{income.price}} K</p>
-          <p>{{income.date}}</p>
+          <p>{{income.date | date:'MM/dd/yyyy'}}</p>
           <p>{{income.dungeon}}</p>
           <p>{{income.team}}</p>
           <p>{{income.realm}}</p>

@@ -1,7 +1,9 @@
 <main class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <span>Home</span>
+      <a routerLink="/home">
+        <span>Home</span>
+      </a>
     </li>
     <li class="breadcrumb-item">
       <a routerLink="/availablePlayers">
@@ -25,7 +27,8 @@
             <i class="material-icons">group</i>
           </span>
         </div>
-        <input type="text" class="form-control" [(ngModel)]="team.name" placeholder="Team Name" formControlName="teamName">
+        <input type="text" class="form-control" [(ngModel)]="team.name" placeholder="Team Name"
+               formControlName="teamName">
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">

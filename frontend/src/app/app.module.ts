@@ -24,6 +24,9 @@ import { TeamRegistrationFormComponent } from './team/team-registration-form/tea
 import { TeamListComponent } from './team/team-list/team-list.component';
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { SplitComponent } from './split/split.component';
+import { HomeComponent } from './home/home.component';
+import { RealmFilter } from './pipes/realm.pipe';
+import { RealmSort } from './pipes/realm.sort';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { SplitComponent } from './split/split.component';
     TeamRegistrationFormComponent,
     TeamListComponent,
     TeamDetailComponent,
-    SplitComponent
+    SplitComponent,
+    HomeComponent,
+    RealmFilter,
+    RealmSort
   ],
   imports: [
     BrowserModule,

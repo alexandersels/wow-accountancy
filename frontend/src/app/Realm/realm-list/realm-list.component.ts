@@ -11,6 +11,10 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 export class RealmListComponent extends Unsubscribe implements OnInit {
 
   realms: Realm[];
+  searchText: string;
+
+  sortType: string;
+  sortReverse: boolean;
 
   constructor(private realmService: RealmService) {
     super();
@@ -22,6 +26,11 @@ export class RealmListComponent extends Unsubscribe implements OnInit {
 
   getRealms(): void {
     this.realmService.getRealms().subscribe(realms => this.realms = realms);
+  }
+
+  setSortType(sortType: string) {
+    this.sortType = sortType;
+    this.sortReverse = !this.sortReverse;
   }
 
 }

@@ -17,8 +17,11 @@ import { TeamRegistrationFormComponent } from './team/team-registration-form/tea
 import { TeamListComponent } from './team/team-list/team-list.component';
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { SplitComponent } from './split/split.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  {path: '.', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'availablePlayers', component: PlayerListComponent},
   {path: 'registerPlayer', component: PlayerRegistrationFormComponent},
   {path: 'player/:id', component: PlayerDetailComponent},
@@ -35,8 +38,7 @@ const routes: Routes = [
   {path: 'registerTeam', component: TeamRegistrationFormComponent},
   {path: 'availableTeams', component: TeamListComponent},
   {path: 'team/:id', component: TeamDetailComponent},
-  {path: 'split', component: SplitComponent},
-
+  {path: 'split', component: SplitComponent}
 ]
 
 @NgModule({

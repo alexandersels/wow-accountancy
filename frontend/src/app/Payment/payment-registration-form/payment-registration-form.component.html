@@ -1,7 +1,9 @@
 <main class="pageOuterWrapper">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <span>Home</span>
+      <a routerLink="/home">
+        <span>Home</span>
+      </a>
     </li>
     <li class="breadcrumb-item">
       <a routerLink="/availablePayments">
@@ -24,7 +26,8 @@
             <i class="material-icons">euro_symbol</i>
           </span>
         </div>
-        <input type="number" class="form-control" [(ngModel)]="payment.price" placeholder="Price" formControlName="priceName">
+        <input type="number" class="form-control" [(ngModel)]="payment.price" placeholder="Price"
+               formControlName="priceName">
         <span class="input-group-text"> K </span>
       </div>
       <div class="input-group mb-3">
