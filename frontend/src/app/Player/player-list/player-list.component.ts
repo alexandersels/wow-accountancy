@@ -21,9 +21,6 @@ export class PlayerListComponent extends Unsubscribe implements OnInit {
   }
 
   getPlayers(): void {
-    this.service.getPlayers()
-      .subscribe(players => this.players = players);
+    this.service.getPlayers().subscribe(players => this.players = players);
   }
-
-
 }

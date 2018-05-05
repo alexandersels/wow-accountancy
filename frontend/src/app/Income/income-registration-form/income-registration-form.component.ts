@@ -7,6 +7,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 import { Team } from '../../shared/models/team.model';
 import { TeamService } from '../../shared/services/team.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-income-registration-form',
@@ -30,7 +31,9 @@ export class IncomeRegistrationFormComponent extends Unsubscribe implements OnIn
     private incomeService: IncomeService,
     private realmService: RealmService,
     private teamService: TeamService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private location: Location
+  ) {
 
     super();
     this.form = this.fb.group(
@@ -43,21 +46,27 @@ export class IncomeRegistrationFormComponent extends Unsubscribe implements OnIn
     );
   }
 
-  public ngOnInit() {
+  ngOnInit() {
     this.fetchRealms();
     this.fetchTeams();
   }
 
-  public register() {
-    this.incomeService.createIncome(this.income)
-      .subscribe();
+  register() {
+    this.incomeService.createIncome(this.income).subscribe();
+    this.goBack();
   }
 
-  private fetchRealms() {
+  fetchRealms() {
     this.realmService.getRealms().subscribe(realms => this.realms = realms);
   }
 
-  private fetchTeams() {
+  fetchTeams() {
     this.teamService.getTeams().subscribe(teams => this.teams = teams);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+
 }

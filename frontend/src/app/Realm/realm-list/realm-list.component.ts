@@ -21,8 +21,7 @@ export class RealmListComponent extends Unsubscribe implements OnInit {
   }
 
   getRealms(): void {
-    this.realmService.getRealms()
-      .subscribe(realms => this.realms = realms);
+    this.realmService.getRealms().subscribe(realms => this.realms = realms);
   }
 
 }

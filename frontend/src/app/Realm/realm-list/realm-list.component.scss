@@ -1,46 +1,12 @@
 .tableWrapper {
-  width: 620px;
-}
-
-.tableHeader {
-
-  border: 1px solid #a4b7c1;
-  background-color: #c2cfd6;
-  display: flex;
-  width: calc(100% - 20px);
-
-  p {
-    margin: 0;
-    padding: 10px 15px;
-    width: calc(100% / 3);
-    text-align: center;
-    font-weight: 700;
-    border: 1px solid #a4b7c1;
-  }
+  width: 600px;
 }
 
 .tableContent {
-
-  box-sizing: border-box;
-  max-height: calc(100vh - 39px);
-  overflow-y: scroll;
-  margin-right: -17px;
-  height: calc(100vh - 310px);
-  width: 100%;
-  .tableData {
-
-    display: flex;
-
-    p {
-      margin: 0;
-      padding: 10px 15px;
-      width: calc((100% / 3));
-      text-align: center;
-      border: 1px solid #a4b7c1;
-
-      & + p {
-
-      }
-    }
-  }
+  height: 610px;
 }
+
+p {
+  width: calc(100% / 3);
+}
+

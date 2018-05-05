@@ -5,6 +5,7 @@ import { RealmService } from '../../shared/services/realm.service';
 import { Player } from '../../shared/models/player.model';
 import { Unsubscribe } from '../../shared/util/unsubscribe';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-realm-registration-form',
@@ -24,7 +25,8 @@ export class RealmRegistrationFormComponent extends Unsubscribe implements OnIni
 
   constructor(private playerService: PlayerService,
               private realmService: RealmService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private location: Location) {
     super();
 
     this.form = fb.group(
@@ -46,6 +48,11 @@ export class RealmRegistrationFormComponent extends Unsubscribe implements OnIni
 
   register() {
     this.realmService.createRealm(this.model).subscribe();
+    this.goBack();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

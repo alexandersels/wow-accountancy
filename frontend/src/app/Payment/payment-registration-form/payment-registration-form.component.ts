@@ -7,6 +7,7 @@ import { PlayerService } from '../../shared/services/player.service';
 import { PaymentService } from '../../shared/services/payment.service';
 import { Unsubscribe } from '../../shared/util/unsubscribe';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-payment-registration-form',
@@ -29,7 +30,8 @@ export class PaymentRegistrationFormComponent extends Unsubscribe implements OnI
   constructor(private realmService: RealmService,
               private playerService: PlayerService,
               private paymentService: PaymentService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private location: Location) {
     super();
 
     this.form = this.fb.group(
@@ -56,7 +58,11 @@ export class PaymentRegistrationFormComponent extends Unsubscribe implements OnI
   }
 
   register() {
-    this.paymentService.createPayment(this.payment)
-      .subscribe();
+    this.paymentService.createPayment(this.payment).subscribe();
+    this.goBack();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

@@ -1,46 +1,33 @@
-<main class="main">
+<div class="pageOuterWrapper">
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <span>Home</span>
     </li>
     <li class="breadcrumb-item">
-        <span class="selected">Splits</span>
+      <span class="selected">Splits</span>
     </li>
   </ol>
-
-  <div class="card">
-    <div class="card-body">
-      <div *ngIf="splits">
-        <h1>Splits</h1>
-        <table class="table table-responsive-sm table-hover table-outline mb-0">
-          <thead class="thead-light">
-          <tr>
-            <th>Payer Name</th>
-            <th>Debt</th>
-            <th>Total Gold Earned</th>
-            <th>Runs Done</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let split of splits">
-            <td class="text-center">
-              <div>{{split.playerName}}</div>
-            </td>
-            <td class="text-center">
-              <div>{{split.debt}} K</div>
-            </td>
-            <td class="text-center">
-              <div>{{split.totalGoldEarned}}</div>
-            </td>
-            <td class="text-center">
-              <div>{{split.amountOfRuns}}</div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+  <div *ngIf="splits">
+    <div class="pageWrapper">
+      <h1 class="tableTitle">Splits</h1>
+      <div class="tableWrapper">
+        <div class="tableHeader">
+          <p>Payer Name</p>
+          <p>Debt</p>
+          <p>Total Gold Earned</p>
+          <p>Runs Done</p>
+        </div>
+        <div class="tableContent">
+          <div class="tableData" *ngFor="let split of splits">
+            <p>{{split.playerName}}</p>
+            <p>{{split.debt}} K</p>
+            <p>{{split.totalGoldEarned}} K</p>
+            <p>{{split.amountOfRuns}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</main>
+</div>
 

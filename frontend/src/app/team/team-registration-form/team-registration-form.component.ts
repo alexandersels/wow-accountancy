@@ -5,6 +5,7 @@ import { Team } from '../../shared/models/team.model';
 import { PlayerService } from '../../shared/services/player.service';
 import { Player } from '../../shared/models/player.model';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-team-registration-form',
@@ -26,7 +27,8 @@ export class TeamRegistrationFormComponent extends Unsubscribe implements OnInit
 
   constructor(private teamService: TeamService,
               private playerService: PlayerService,
-              private fb: FormBuilder)
+              private fb: FormBuilder,
+              private location: Location)
   {
     super();
 
@@ -49,7 +51,12 @@ export class TeamRegistrationFormComponent extends Unsubscribe implements OnInit
     this.playerService.getPlayers().subscribe(players => this.players = players);
   }
   register() {
-    this.teamService.createTeam(this.team).subscribe()
+    this.teamService.createTeam(this.team).subscribe();
+    this.goBack();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

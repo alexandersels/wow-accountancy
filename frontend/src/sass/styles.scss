@@ -176,6 +176,51 @@ a {
   }
 }
 
+.tableWrapper {
+
+}
+
+.tableHeader {
+
+  border: 1px solid #a4b7c1;
+  background-color: #c2cfd6;
+  display: flex;
+  width: 100%;
+
+  p {
+    margin: 0;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 700;
+    border: 1px solid #a4b7c1;
+  }
+}
+
+.tableContent {
+
+  max-height: calc(100vh - 39px);
+  overflow-y: scroll;
+  height: auto;
+  width: 100%;
+  margin-right: -17px;
+
+  .tableData {
+
+    display: flex;
+
+    p {
+      margin: 0;
+      padding: 10px 15px;
+      text-align: center;
+      border: 1px solid #a4b7c1;
+
+      & + p {
+
+      }
+    }
+  }
+}
+
 
 
 
