@@ -19,6 +19,10 @@
   <div class="pageWrapper">
     <h1 class="tableTitle">Registed Incomes</h1>
     <div class="tableWrapper">
+      <div class="searchWrapper">
+        <i class="material-icons">search</i>
+        <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on team ...">
+      </div>
       <div class="tableHeader">
         <p>ID</p>
         <p>Price</p>
@@ -28,7 +32,7 @@
         <p>Realm</p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let income of incomes">
+        <div class="tableData" *ngFor="let income of (incomes | incomesFilter: searchText)">
           <p>{{income.id}}</p>
           <p>{{income.price}} K</p>
           <p>{{income.date | date:'MM/dd/yyyy'}}</p>

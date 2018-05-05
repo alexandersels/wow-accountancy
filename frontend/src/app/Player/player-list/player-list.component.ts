@@ -10,6 +10,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 })
 export class PlayerListComponent extends Unsubscribe implements OnInit {
 
+  searchText: string;
   players: Player[];
 
   constructor(private service: PlayerService) {

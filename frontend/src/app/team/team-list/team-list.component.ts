@@ -10,7 +10,9 @@ import { Team } from '../../shared/models/team.model';
 })
 export class TeamListComponent extends Unsubscribe implements OnInit {
 
-  public teams: Team[];
+
+  searchText: string;
+  teams: Team[];
 
   constructor(private teamService: TeamService) {
     super();

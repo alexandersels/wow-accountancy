@@ -13,13 +13,17 @@
     <div class="pageWrapper">
       <h1 class="tableTitle">Gold per Server</h1>
       <div class="tableWrapper">
+        <div class="searchWrapper">
+          <i class="material-icons">search</i>
+          <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on realm ...">
+        </div>
         <div class="tableHeader">
           <p>Realm</p>
           <p>Price</p>
           <p>Player</p>
         </div>
         <div class="tableContent">
-          <div class="tableData" *ngFor="let goldPerRealm of availableGold.goldPerRealm">
+          <div class="tableData" *ngFor="let goldPerRealm of (availableGold.goldPerRealm | goldPerServerFilter: searchText)">
             <p>{{goldPerRealm.realm}}</p>
             <p>{{goldPerRealm.gold}} K</p>
             <p>{{goldPerRealm.player}}</p>

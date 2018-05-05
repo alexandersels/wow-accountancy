@@ -19,6 +19,10 @@
   <div class="pageWrapper">
     <h1 class="tableTitle">Registered Payments</h1>
     <div class="tableWrapper">
+      <div class="searchWrapper">
+        <i class="material-icons">search</i>
+        <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on player ...">
+      </div>
       <div class="tableHeader">
         <p>ID</p>
         <p>Price</p>
@@ -26,7 +30,7 @@
         <p>Realm</p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let payement of payments">
+        <div class="tableData" *ngFor="let payement of (payments |  paymentFilter: searchText)">
           <p>{{payement.id}}</p>
           <p>{{payement.price}} K</p>
           <p>{{payement.player}}</p>

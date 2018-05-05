@@ -17,8 +17,12 @@
     </li>
   </ol>
   <div class="pageWrapper">
-    <h1 class="tableTitle">Registed Teams</h1>
+    <h1 class="tableTitle">Registered Teams</h1>
     <div class="tableWrapper">
+      <div class="searchWrapper">
+        <i class="material-icons">search</i>
+        <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on team name ...">
+      </div>
       <div class="tableHeader">
         <p>Team Name</p>
         <p>Member One</p>
@@ -27,7 +31,7 @@
         <p>Member Four</p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let team of teams">
+        <div class="tableData" *ngFor="let team of (teams| teamFilter: searchText)">
           <p>{{team.name}}</p>
           <p>{{team.memberOne}}</p>
           <p>{{team.memberTwo}}</p>

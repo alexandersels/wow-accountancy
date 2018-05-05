@@ -10,6 +10,7 @@ import { Unsubscribe } from '../shared/util/unsubscribe';
 })
 export class GoldPerServerComponent extends Unsubscribe implements OnInit {
 
+  searchText: string;
   availableGold: AvailableGold;
 
   constructor(private availableGoldService: AvailableGoldService) {

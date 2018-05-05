@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,8 +25,14 @@ import { TeamListComponent } from './team/team-list/team-list.component';
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { SplitComponent } from './split/split.component';
 import { HomeComponent } from './home/home.component';
-import { RealmFilter } from './pipes/realm.pipe';
+import { RealmSearchFilter } from './pipes/realm.search';
 import { RealmSort } from './pipes/realm.sort';
+import { PlayerSearchFilter } from './pipes/player.search';
+import { SplitSearchFilter } from './pipes/split.search';
+import { GoldPerServerSearchFilter } from './pipes/goldperservers.search';
+import { IncomesSearchFilter } from './pipes/incomes.search';
+import { PaymentSearchFilter } from './pipes/payment.search';
+import { TeamSearchFilter } from './pipes/team.search';
 
 
 @NgModule({
@@ -50,7 +56,13 @@ import { RealmSort } from './pipes/realm.sort';
     TeamDetailComponent,
     SplitComponent,
     HomeComponent,
-    RealmFilter,
+    RealmSearchFilter,
+    PlayerSearchFilter,
+    SplitSearchFilter,
+    GoldPerServerSearchFilter,
+    IncomesSearchFilter,
+    PaymentSearchFilter,
+    TeamSearchFilter,
     RealmSort
   ],
   imports: [

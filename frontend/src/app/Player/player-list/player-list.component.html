@@ -20,11 +20,15 @@
   <div class="pageWrapper">
     <h1 class="tableTitle">Registed Players</h1>
     <div class="tableWrapper">
+      <div class="searchWrapper">
+        <i class="material-icons">search</i>
+        <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on player ...">
+      </div>
       <div class="tableHeader">
         <p>Players</p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let player of players">
+        <div class="tableData" *ngFor="let player of (players | playerFilter: searchText)">
           <p>{{player.name}}</p>
         </div>
       </div>

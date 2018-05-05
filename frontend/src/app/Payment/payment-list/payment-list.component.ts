@@ -10,6 +10,7 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 })
 export class PaymentListComponent extends Unsubscribe implements OnInit {
 
+  searchText: string;
   payments: Payment[];
 
   constructor(private paymentService: PaymentService)

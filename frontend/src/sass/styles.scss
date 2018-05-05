@@ -12,9 +12,11 @@ body {
 h1 {
   font-size: 1.6em;
 }
+
 h2 {
   font-size: 1.4em;
 }
+
 h3 {
   font-size: 1.2em;
 }
@@ -178,44 +180,63 @@ a {
 
 .tableWrapper {
 
-}
-
-.tableHeader {
-
-  border: 1px solid #a4b7c1;
-  background-color: #c2cfd6;
-  display: flex;
-  width: 100%;
-
-  p {
-    margin: 0;
-    padding: 10px 15px;
-    text-align: center;
-    font-weight: 700;
-    border: 1px solid #a4b7c1;
-  }
-}
-
-.tableContent {
-
-  max-height: calc(100vh - 39px);
-  overflow-y: scroll;
-  height: auto;
-  width: 100%;
-  margin-right: -17px;
-
-  .tableData {
+  .searchWrapper {
 
     display: flex;
+    border: 1px solid #a4b7c1;
+    margin-bottom: 12px;
+
+    .searchField {
+      width: 100%;
+      font-size: 16px;
+      border-width: 0px;
+    }
+
+    i {
+      border: 1px solid #ddd;
+    }
+  }
+
+  .tableHeader {
+
+    border: 1px solid #a4b7c1;
+    background-color: #c2cfd6;
+    display: flex;
+    width: 100%;
 
     p {
+      display: flex;
       margin: 0;
       padding: 10px 15px;
       text-align: center;
+      font-weight: 700;
       border: 1px solid #a4b7c1;
+      cursor: pointer;
+      vertical-align: center;
+    }
+  }
 
-      & + p {
+  .tableContent {
 
+    max-height: calc(100vh - 39px);
+    overflow-y: scroll;
+    height: auto;
+    width: 100%;
+    margin-right: -17px;
+
+    .tableData {
+
+      display: flex;
+
+      p {
+        margin: 0;
+        padding: 10px 15px;
+        text-align: center;
+        border: 1px solid #a4b7c1;
+
+        & + p {
+
+        }
       }
     }
   }

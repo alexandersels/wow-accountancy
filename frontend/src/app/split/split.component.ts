@@ -10,7 +10,8 @@ import { SplitService } from '../shared/services/split.service';
 })
 export class SplitComponent extends Unsubscribe implements OnInit {
 
-  public splits: Split[];
+  searchText: string;
+  splits: Split[];
 
   constructor(private splitService: SplitService) {
     super();

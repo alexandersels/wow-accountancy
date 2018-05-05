@@ -6,7 +6,7 @@ import { Realm } from '../shared/models/realm.model';
   name: 'realmFilter',
   pure: false
 })
-export class RealmFilter implements PipeTransform {
+export class RealmSearchFilter implements PipeTransform {
 
   transform(realms: Realm[], searchText: string): Realm[] {
 

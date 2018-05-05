@@ -13,8 +13,8 @@ export class RealmListComponent extends Unsubscribe implements OnInit {
   realms: Realm[];
   searchText: string;
 
-  sortType: string;
-  sortReverse: boolean;
+  sortType = 'name';
+  sortReverse = false;
 
   constructor(private realmService: RealmService) {
     super();
@@ -33,4 +33,7 @@ export class RealmListComponent extends Unsubscribe implements OnInit {
     this.sortReverse = !this.sortReverse;
   }
 
+  shouldDisplaySortIcon(name: string, isUpArrow: boolean): boolean {
+    return this.sortType == name && isUpArrow == this.sortReverse;
+  }
 }
