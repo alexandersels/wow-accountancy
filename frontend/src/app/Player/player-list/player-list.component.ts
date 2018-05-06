@@ -12,6 +12,7 @@ import { ListComponentBase } from '../../shared/parents/listComponentBase';
 export class PlayerListComponent extends ListComponentBase {
 
   players: Player[];
+  selectedPlayer: Player;
 
   constructor(private service: PlayerService) {
     super("name");
@@ -23,5 +24,9 @@ export class PlayerListComponent extends ListComponentBase {
 
   getPlayers(): void {
     this.service.getPlayers().subscribe(players => this.players = players);
+  }
+
+  setSelectedPlayer(selectedPlayer: Player) {
+    this.selectedPlayer = selectedPlayer;
   }
 }

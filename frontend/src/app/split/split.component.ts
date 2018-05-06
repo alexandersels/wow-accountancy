@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Unsubscribe } from '../shared/util/unsubscribe';
+import { Component } from '@angular/core';
 import { Split } from '../shared/models/split.model';
 import { SplitService } from '../shared/services/split.service';
 import { ListComponentBase } from '../shared/parents/listComponentBase';
@@ -12,9 +11,10 @@ import { ListComponentBase } from '../shared/parents/listComponentBase';
 export class SplitComponent extends ListComponentBase {
 
   splits: Split[];
+  selectedSplit: Split;
 
   constructor(private splitService: SplitService) {
-    super("name");
+    super('name');
   }
 
   ngOnInit() {
@@ -23,6 +23,10 @@ export class SplitComponent extends ListComponentBase {
 
   fetchSplits() {
     this.splitService.getSplits().subscribe(splits => this.splits = splits);
+  }
+
+  setSelectedSplit(selectedSplit: Split) {
+    this.selectedSplit = selectedSplit;
   }
 
 }

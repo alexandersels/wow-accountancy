@@ -51,7 +51,9 @@
         </p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let income of (incomes | incomesFilter: searchText | incomeSort:sortType:sortReverse)">
+        <div class="tableData" *ngFor="let income of (incomes | incomesFilter: searchText | incomeSort:sortType:sortReverse)"
+             (click)="setSelectedIncome(income)"
+             [ngClass]="{'selected-row': selectedIncome === income}">
           <p>{{income.team}}</p>
           <p>{{income.price}} K</p>
           <p>{{income.date | date:'MM/dd/yyyy'}}</p>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { RealmService } from '../../shared/services/realm.service';
@@ -14,8 +14,8 @@ import { Unsubscribe } from '../../shared/util/unsubscribe';
 })
 export class RealmDetailComponent extends Unsubscribe implements OnInit {
 
+  @Input()
   realm: Realm;
-  player: Player;
 
   constructor(private route: ActivatedRoute,
               private realmService: RealmService,
@@ -26,23 +26,6 @@ export class RealmDetailComponent extends Unsubscribe implements OnInit {
   }
 
   ngOnInit() {
-    this.loadContent();
-  }
-
-  loadContent(): void {
-    const name = this.route.snapshot.paramMap.get('id');
-    this.realmService.getRealm(name).subscribe(realm => this.loadRealm(realm));
-  }
-
-  loadRealm(realm: Realm): void {
-    this.realm = realm;
-    this.loadPlayer(realm);
-  }
-
-  loadPlayer(realm: Realm): void {
-    this.realm = realm;
-    this.playerService.getPlayer(realm.player)
-      .subscribe(player => this.player = player);
   }
 
   goBack(): void {

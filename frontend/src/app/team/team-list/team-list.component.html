@@ -51,7 +51,9 @@
         </p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let team of (teams| teamFilter: searchText | teamSort:sortType:sortReverse)">
+        <div class="tableData" *ngFor="let team of (teams| teamFilter: searchText | teamSort:sortType:sortReverse)"
+             (click)="setSelectedTeam(team)"
+             [ngClass]="{'selected-row': selectedTeam === team}">
           <p>{{team.name}}</p>
           <p>{{team.memberOne}}</p>
           <p>{{team.memberTwo}}</p>

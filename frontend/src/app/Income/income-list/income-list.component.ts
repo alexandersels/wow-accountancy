@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Income } from '../../shared/models/income.model';
 import { IncomeService } from '../../shared/services/income.service';
-import { Unsubscribe } from '../../shared/util/unsubscribe';
 import { ListComponentBase } from '../../shared/parents/listComponentBase';
 
 @Component({
@@ -12,9 +11,10 @@ import { ListComponentBase } from '../../shared/parents/listComponentBase';
 export class IncomeListComponent extends ListComponentBase {
 
   incomes: Income[];
+  selectedIncome: Income;
 
   constructor(private service: IncomeService) {
-    super("team");
+    super('team');
   }
 
   ngOnInit() {
@@ -24,5 +24,9 @@ export class IncomeListComponent extends ListComponentBase {
   getIncomes(): void {
     this.service.getIncomes()
       .subscribe(incomes => this.incomes = incomes);
+  }
+
+  setSelectedIncome(setSelectedIncome: Income) {
+    this.selectedIncome = setSelectedIncome;
   }
 }

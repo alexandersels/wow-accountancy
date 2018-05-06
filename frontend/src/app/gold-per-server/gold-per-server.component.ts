@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AvailableGoldService } from '../shared/services/available-gold.service';
 import { AvailableGold } from '../shared/models/available-gold.model';
-import { Unsubscribe } from '../shared/util/unsubscribe';
 import { ListComponentBase } from '../shared/parents/listComponentBase';
 
 @Component({
@@ -12,9 +11,10 @@ import { ListComponentBase } from '../shared/parents/listComponentBase';
 export class GoldPerServerComponent extends ListComponentBase {
 
   availableGold: AvailableGold;
+  selectedGold: AvailableGold;
 
   constructor(private availableGoldService: AvailableGoldService) {
-    super("realm");
+    super('realm');
   }
 
   ngOnInit() {
@@ -24,6 +24,10 @@ export class GoldPerServerComponent extends ListComponentBase {
   getAvailableGold() {
     this.availableGoldService.getAvailableGold()
       .subscribe(availableGold => this.availableGold = availableGold)
+  }
+
+  setSelectedGold(selectedGold: AvailableGold) {
+    this.selectedGold = selectedGold;
   }
 
 }
