@@ -22,6 +22,10 @@ public class Player extends BaseEntity implements IPlayer {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
     @Column(name = "name")
     @NotNull
     private String name;
@@ -29,15 +33,20 @@ public class Player extends BaseEntity implements IPlayer {
     private Player() {
     }
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
+    public Long getId() {
+        return id;
+    }
     @Override
     protected List<CommandHandler> getCommandHandlers() {
         return new ArrayList<CommandHandler>();
     }
 
-    public static Player.Builder builder() {
-        return new Player.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     private static class Builder extends BaseEntity.Builder<Player, Builder> {
@@ -47,7 +56,12 @@ public class Player extends BaseEntity implements IPlayer {
             return new Player();
         }
 
-        public Player.Builder withName(String name) {
+        public Builder withId(Long id) {
+            instance().id = id;
+            return this;
+        }
+
+        public Builder withName(String name) {
             instance().name = name;
             return this;
         }

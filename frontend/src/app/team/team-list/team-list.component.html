@@ -55,10 +55,10 @@
              (click)="setSelectedTeam(team)"
              [ngClass]="{'selected-row': selectedTeam === team}">
           <p>{{team.name}}</p>
-          <p>{{team.memberOne}}</p>
-          <p>{{team.memberTwo}}</p>
-          <p>{{team.memberThree}}</p>
-          <p>{{team.memberFour}}</p>
+          <p>{{team.memberOne.name}}</p>
+          <p>{{team.memberTwo.name}}</p>
+          <p>{{team.memberThree.name}}</p>
+          <p>{{team.memberFour.name}}</p>
         </div>
       </div>
     </div>

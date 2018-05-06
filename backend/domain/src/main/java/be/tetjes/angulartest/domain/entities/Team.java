@@ -5,9 +5,8 @@ import be.tetjes.angulartest.iface.ITeam;
 import be.tetjes.angulartest.infrastructure.BaseEntity;
 import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Team extends BaseEntity implements ITeam {
@@ -23,43 +22,49 @@ public class Team extends BaseEntity implements ITeam {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
     @Column(name = "name")
+    @NotNull
     private String name;
 
     @Column(name = "memberOne")
-    private String memberOne;
+    @NotNull
+    private Long memberOne;
 
     @Column(name = "memberTwo")
-    private String memberTwo;
+    @NotNull
+    private Long memberTwo;
 
     @Column(name = "memberThree")
-    private String memberThree;
+    @NotNull
+    private Long memberThree;
 
     @Column(name = "memberFour")
-    private String memberFour;
+    @NotNull
+    private Long memberFour;
 
-    @Override
+    public Long getId() {return id;}
+
     public String getName() {
         return name;
     }
 
-    @Override
-    public String getMemberOne() {
+    public Long getMemberOne() {
         return memberOne;
     }
 
-    @Override
-    public String getMemberTwo() {
+    public Long getMemberTwo() {
         return memberTwo;
     }
 
-    @Override
-    public String getMemberThree() {
+    public Long getMemberThree() {
         return memberThree;
     }
 
-    @Override
-    public String getMemberFour() {
+    public Long getMemberFour() {
         return memberFour;
     }
 
@@ -79,21 +84,26 @@ public class Team extends BaseEntity implements ITeam {
             return this;
         }
 
-        public Builder withMemberOne(String memberOne) {
+        public Builder withId(Long id) {
+            instance().id = id;
+            return this;
+        }
+
+        public Builder withMemberOne(Long memberOne) {
             instance().memberOne = memberOne;
             return this;
         }
 
-        public Builder withMemberTwo(String memberTwo) {
+        public Builder withMemberTwo(Long memberTwo) {
             instance().memberTwo = memberTwo;
             return this;
         }
 
-        public Builder withMemberThree(String memberThree) {
+        public Builder withMemberThree(Long memberThree) {
             instance().memberThree = memberThree;
             return this;
         }
-        public Builder withMemberFour(String memberFour) {
+        public Builder withMemberFour(Long memberFour) {
             instance().memberFour = memberFour;
             return this;
         }

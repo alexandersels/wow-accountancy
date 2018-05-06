@@ -2,16 +2,12 @@ package be.tetjes.angulartest.iface;
 
 public interface ITeam {
 
+    Long getId();
     String getName();
-
-    String getMemberOne();
-
-    String getMemberTwo();
-
-    String getMemberThree();
-
-    String getMemberFour();
-
+    Long getMemberOne();
+    Long getMemberTwo();
+    Long getMemberThree();
+    Long getMemberFour();
     int getVersion();
 
 }

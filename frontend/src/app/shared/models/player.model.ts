@@ -1,6 +1,7 @@
 export class Player {
 
-  public name: string;
+  id: number;
+  name: string;
 
   constructor()
   {

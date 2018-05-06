@@ -4,6 +4,7 @@ import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
 public class PlayerDto {
 
+    public Long id;
     public String name;
     public int version;
 
@@ -18,6 +19,10 @@ public class PlayerDto {
             return new PlayerDto();
         }
 
+        public Builder withId(Long id) {
+            instance().id = id;
+            return this;
+        }
         public Builder withName(String name) {
             instance().name = name;
             return this;

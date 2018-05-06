@@ -1,33 +1,34 @@
 package be.tetjes.angulartest.domain.commands.team;
 
+import be.tetjes.angulartest.domain.entities.Player;
 import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
 public class CreateTeamCommand {
 
     private String name;
-    private String memberOne;
-    private String memberTwo;
-    private String memberThree;
-    private String memberFour;
+    private Long memberOne;
+    private Long memberTwo;
+    private Long memberThree;
+    private Long memberFour;
 
 
     public String getName() {
         return name;
     }
 
-    public String getMemberOne() {
+    public Long getMemberOne() {
         return memberOne;
     }
 
-    public String getMemberTwo() {
+    public Long getMemberTwo() {
         return memberTwo;
     }
 
-    public String getMemberThree() {
+    public Long getMemberThree() {
         return memberThree;
     }
 
-    public String getMemberFour() {
+    public Long getMemberFour() {
         return memberFour;
     }
 
@@ -47,21 +48,21 @@ public class CreateTeamCommand {
             return this;
         }
 
-        public Builder withMemberOne(String memberOne) {
+        public Builder withMemberOne(Long memberOne) {
             instance().memberOne = memberOne;
             return this;
         }
 
-        public Builder withMemberTwo(String memberTwo) {
+        public Builder withMemberTwo(Long memberTwo) {
             instance().memberTwo = memberTwo;
             return this;
         }
-        public Builder withMemberThree(String memberThree) {
+        public Builder withMemberThree(Long memberThree) {
             instance().memberThree = memberThree;
             return this;
         }
 
-        public Builder withMemberFour(String memberFour) {
+        public Builder withMemberFour(Long memberFour) {
             instance().memberFour = memberFour;
             return this;
         }

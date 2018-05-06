@@ -1,7 +1,9 @@
 package be.tetjes.angulartest.iface;
 
 public interface IPlayer {
-    String getName();
 
+    Long getId();
+    String getName();
     int getVersion();
+
 }
