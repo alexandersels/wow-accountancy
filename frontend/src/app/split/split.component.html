@@ -19,12 +19,24 @@
           <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on player ...">
         </div>
         <div class="tableHeader">
-          <p>Payer Name</p>
-          <p>Debt</p>
-          <p>Runs Done</p>
+          <p (click)="setSortType('player')">
+            Payer Name
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', false)">keyboard_arrow_down</i>
+          </p>
+          <p (click)="setSortType('debt')">
+            Debt
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('debt', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('debt', false)">keyboard_arrow_down</i>
+          </p>
+          <p (click)="setSortType('amountOfRuns')">
+            Runs Done
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('runs', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('runs', false)">keyboard_arrow_down</i>
+          </p>
         </div>
         <div class="tableContent">
-          <div class="tableData" *ngFor="let split of (splits| splitFilter: searchText)">
+          <div class="tableData" *ngFor="let split of (splits| splitFilter: searchText | splitSort:sortType:sortReverse)">
             <p>{{split.playerName}}</p>
             <p>{{split.debt}} K</p>
             <p>{{split.amountOfRuns}}</p>

@@ -1,21 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Unsubscribe } from '../../shared/util/unsubscribe';
+import { Component } from '@angular/core';
 import { TeamService } from '../../shared/services/team.service';
 import { Team } from '../../shared/models/team.model';
+import { ListComponentBase } from '../../shared/parents/listComponentBase';
 
 @Component({
   selector: 'app-team-list',
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss']
 })
-export class TeamListComponent extends Unsubscribe implements OnInit {
+export class TeamListComponent extends ListComponentBase {
 
-
-  searchText: string;
   teams: Team[];
 
   constructor(private teamService: TeamService) {
-    super();
+    super('name');
   }
 
   ngOnInit() {

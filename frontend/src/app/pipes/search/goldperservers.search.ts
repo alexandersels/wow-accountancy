@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Realm } from '../shared/models/realm.model';
-import { Player } from '../shared/models/player.model';
-import { Income } from '../shared/models/income.model';
-import { AvailableGoldPerRealm } from '../shared/models/available-gold-per-realm';
+import { Realm } from '../../shared/models/realm.model';
+import { Player } from '../../shared/models/player.model';
+import { Income } from '../../shared/models/income.model';
+import { AvailableGoldPerRealm } from '../../shared/models/available-gold-per-realm';
 
 
 @Pipe({
   name: 'goldPerServerFilter',
-  pure: false
+  pure: true
 })
 export class GoldPerServerSearchFilter implements PipeTransform {
 

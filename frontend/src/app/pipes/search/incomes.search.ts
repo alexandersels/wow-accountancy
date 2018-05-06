@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Realm } from '../shared/models/realm.model';
-import { Player } from '../shared/models/player.model';
-import { Income } from '../shared/models/income.model';
+import { Realm } from '../../shared/models/realm.model';
+import { Player } from '../../shared/models/player.model';
+import { Income } from '../../shared/models/income.model';
 
 
 @Pipe({
   name: 'incomesFilter',
-  pure: false
+  pure: true
 })
 export class IncomesSearchFilter implements PipeTransform {
 

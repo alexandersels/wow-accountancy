@@ -24,20 +24,38 @@
         <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on team ...">
       </div>
       <div class="tableHeader">
-        <p>ID</p>
-        <p>Price</p>
-        <p>Date</p>
-        <p>Dungeon</p>
-        <p>Team</p>
-        <p>Realm</p>
+        <p (click)="setSortType('team')">
+          Team
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('team', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('team', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('price')">
+          Price
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('price', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('price', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('date')">
+          Date
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('date', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('date', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('dungeon')">
+          Dungeon
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('dungeon', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('dungeon', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('realm')">
+          Realm
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('realm', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('realm', false)">keyboard_arrow_down</i>
+        </p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let income of (incomes | incomesFilter: searchText)">
-          <p>{{income.id}}</p>
+        <div class="tableData" *ngFor="let income of (incomes | incomesFilter: searchText | incomeSort:sortType:sortReverse)">
+          <p>{{income.team}}</p>
           <p>{{income.price}} K</p>
           <p>{{income.date | date:'MM/dd/yyyy'}}</p>
           <p>{{income.dungeon}}</p>
-          <p>{{income.team}}</p>
           <p>{{income.realm}}</p>
         </div>
       </div>

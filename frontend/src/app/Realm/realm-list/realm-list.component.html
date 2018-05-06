@@ -18,32 +18,39 @@
   </ol>
   <div class="pageWrapper">
     <h1 class="tableTitle">Registered Realms</h1>
-    <div class="tableWrapper">
-      <div class="searchWrapper">
-        <i class="material-icons">search</i>
-        <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on realm ...">
-      </div>
-      <div class="tableHeader">
-        <p (click)="setSortType('name')">Realm Name
-          <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', true)">keyboard_arrow_up</i>
-          <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', false)">keyboard_arrow_down</i>
-        </p>
-        <p (click)="setSortType('region')">Region
-          <i class="material-icons" *ngIf="shouldDisplaySortIcon('region', true)">keyboard_arrow_up</i>
-          <i class="material-icons" *ngIf="shouldDisplaySortIcon('region', false)">keyboard_arrow_down</i>
-        </p>
-        <p (click)="setSortType('player')">Player
-          <i class="material-icons" *ngIf="shouldDisplaySortIcon('player', true)">keyboard_arrow_up</i>
-          <i class="material-icons" *ngIf="shouldDisplaySortIcon('player', false)">keyboard_arrow_down</i>
-        </p>
-      </div>
-      <div class="tableContent">
-        <div class="tableData"
-             *ngFor="let realm of (realms | realmFilter: searchText | realmSort:sortType:sortReverse )">
-          <p>{{realm.name}}</p>
-          <p>{{realm.region}}</p>
-          <p>{{realm.player}}</p>
+    <div class="masterDetail">
+      <div class="tableWrapper">
+        <div class="searchWrapper">
+          <i class="material-icons">search</i>
+          <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on realm ...">
         </div>
+        <div class="tableHeader">
+          <p (click)="setSortType('name')">Realm Name
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', false)">keyboard_arrow_down</i>
+          </p>
+          <p (click)="setSortType('region')">Region
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('region', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('region', false)">keyboard_arrow_down</i>
+          </p>
+          <p (click)="setSortType('player')">Player
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('player', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('player', false)">keyboard_arrow_down</i>
+          </p>
+        </div>
+        <div class="tableContent">
+          <div class="tableData"
+               *ngFor="let realm of (realms | realmFilter: searchText | realmSort:sortType:sortReverse )"
+               (click)="setSelectedRealm(realm)"
+               [ngClass]="{'selected-row': selectedRealm === realm}">
+            <p>{{realm.name}}</p>
+            <p>{{realm.region}}</p>
+            <p>{{realm.player}}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="selectedRealm" class="edit-wrapper">
+        <span>TETTEN</span>
       </div>
     </div>
   </div>

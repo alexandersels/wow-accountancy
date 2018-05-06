@@ -178,7 +178,19 @@ a {
   }
 }
 
+.masterDetail {
+  display: flex;
+}
+
+.edit-wrapper {
+  flex-grow: 1;
+}
+
 .tableWrapper {
+
+  .selected-row {
+    background-color: #536c79;
+  }
 
   .searchWrapper {
 
@@ -224,9 +236,18 @@ a {
     width: 100%;
     margin-right: -17px;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     .tableData {
 
       display: flex;
+      cursor: pointer;
+      &:hover{
+        background-color: #0086B3;
+        color: white;
+      }
 
       p {
         margin: 0;

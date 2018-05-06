@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Realm } from '../shared/models/realm.model';
+import { Realm } from '../../shared/models/realm.model';
 
 
 @Pipe({
   name: 'realmFilter',
-  pure: false
+  pure: true
 })
 export class RealmSearchFilter implements PipeTransform {
 

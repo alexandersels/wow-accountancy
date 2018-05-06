@@ -25,14 +25,21 @@ import { TeamListComponent } from './team/team-list/team-list.component';
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { SplitComponent } from './split/split.component';
 import { HomeComponent } from './home/home.component';
-import { RealmSearchFilter } from './pipes/realm.search';
-import { RealmSort } from './pipes/realm.sort';
-import { PlayerSearchFilter } from './pipes/player.search';
-import { SplitSearchFilter } from './pipes/split.search';
-import { GoldPerServerSearchFilter } from './pipes/goldperservers.search';
-import { IncomesSearchFilter } from './pipes/incomes.search';
-import { PaymentSearchFilter } from './pipes/payment.search';
-import { TeamSearchFilter } from './pipes/team.search';
+import { RealmSearchFilter } from './pipes/search/realm.search';
+import { RealmSort } from './pipes/sort/realm.sort';
+import { PlayerSearchFilter } from './pipes/search/player.search';
+import { SplitSearchFilter } from './pipes/search/split.search';
+import { GoldPerServerSearchFilter } from './pipes/search/goldperservers.search';
+import { IncomesSearchFilter } from './pipes/search/incomes.search';
+import { PaymentSearchFilter } from './pipes/search/payment.search';
+import { TeamSearchFilter } from './pipes/search/team.search';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { PlayerSort } from './pipes/sort/player.sort';
+import { TeamSort } from './pipes/sort/team.sort';
+import { IncomeSort } from './pipes/sort/income.sort';
+import { PaymentSort } from './pipes/sort/payment.sort';
+import { GoldPerServerSort } from './pipes/sort/server.sort';
+import { SplitSort } from './pipes/sort/split.sort';
 
 
 @NgModule({
@@ -63,7 +70,13 @@ import { TeamSearchFilter } from './pipes/team.search';
     IncomesSearchFilter,
     PaymentSearchFilter,
     TeamSearchFilter,
-    RealmSort
+    RealmSort,
+    PlayerSort,
+    TeamSort,
+    IncomeSort,
+    PaymentSort,
+    GoldPerServerSort,
+    SplitSort
   ],
   imports: [
     BrowserModule,
@@ -71,6 +84,7 @@ import { TeamSearchFilter } from './pipes/team.search';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    Ng2GoogleChartsModule,
     SharedModule.forRoot(),
   ],
   bootstrap: [AppComponent]

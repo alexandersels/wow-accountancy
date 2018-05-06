@@ -2,22 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { RealmService } from '../../shared/services/realm.service';
 import { Realm } from '../../shared/models/realm.model';
 import { Unsubscribe } from '../../shared/util/unsubscribe';
+import { ListComponentBase } from '../../shared/parents/listComponentBase';
 
 @Component({
   selector: 'app-realm-list',
   templateUrl: './realm-list.component.html',
   styleUrls: ['./realm-list.component.scss']
 })
-export class RealmListComponent extends Unsubscribe implements OnInit {
+export class RealmListComponent extends ListComponentBase {
 
   realms: Realm[];
-  searchText: string;
 
-  sortType = 'name';
-  sortReverse = false;
+  selectedRealm: Realm;
 
   constructor(private realmService: RealmService) {
-    super();
+    super("name");
   }
 
   ngOnInit() {
@@ -28,12 +27,8 @@ export class RealmListComponent extends Unsubscribe implements OnInit {
     this.realmService.getRealms().subscribe(realms => this.realms = realms);
   }
 
-  setSortType(sortType: string) {
-    this.sortType = sortType;
-    this.sortReverse = !this.sortReverse;
+  setSelectedRealm(selectedRealm: Realm) {
+    this.selectedRealm = selectedRealm;
   }
 
-  shouldDisplaySortIcon(name: string, isUpArrow: boolean): boolean {
-    return this.sortType == name && isUpArrow == this.sortReverse;
-  }
 }

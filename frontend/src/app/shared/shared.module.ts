@@ -8,6 +8,7 @@ import { TeamService } from './services/team.service';
 import { SplitService } from './services/split.service';
 import { MatInputModule } from '@angular/material/input';
 import {ReactiveFormsModule} from "@angular/forms";
+import { StatisticsService } from './services/statistics.service';
 
 
 const MODULES = [
@@ -24,7 +25,8 @@ const SERVICES = [
   PaymentService,
   AvailableGoldService,
   TeamService,
-  SplitService
+  SplitService,
+  StatisticsService
 ];
 
 const PIPES = [];

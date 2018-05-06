@@ -18,19 +18,28 @@
           <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on realm ...">
         </div>
         <div class="tableHeader">
-          <p>Realm</p>
-          <p>Price</p>
-          <p>Player</p>
+          <p (click)="setSortType('realm')">
+            Realm
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('realm', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('realm', false)">keyboard_arrow_down</i>
+          </p>
+          <p (click)="setSortType('price')">
+            Price
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('price', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('price', false)">keyboard_arrow_down</i>
+          </p>
+          <p (click)="setSortType('player')">
+            Player
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('player', true)">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="shouldDisplaySortIcon('player', false)">keyboard_arrow_down</i>
+          </p>
         </div>
         <div class="tableContent">
-          <div class="tableData" *ngFor="let goldPerRealm of (availableGold.goldPerRealm | goldPerServerFilter: searchText)">
+          <div class="tableData" *ngFor="let goldPerRealm of (availableGold.goldPerRealm | goldPerServerFilter: searchText | goldPerServerSort:sortType:sortReverse)">
             <p>{{goldPerRealm.realm}}</p>
             <p>{{goldPerRealm.gold}} K</p>
             <p>{{goldPerRealm.player}}</p>
           </div>
-        </div>
-        <div>
-          <span>Total gold: </span>{{availableGold.totalGold}} K
         </div>
       </div>
     </div>

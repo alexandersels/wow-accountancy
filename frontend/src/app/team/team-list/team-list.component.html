@@ -24,14 +24,34 @@
         <input class="searchField" type="text" [(ngModel)]="searchText" placeholder="Search on team name ...">
       </div>
       <div class="tableHeader">
-        <p>Team Name</p>
-        <p>Member One</p>
-        <p>Member Two</p>
-        <p>Member Three</p>
-        <p>Member Four</p>
+        <p (click)="setSortType('name')">
+          Team Name
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('name', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('memberOne')">
+          Member One
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberOne', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberOne', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('memberTwo')">
+          Member Two
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberTwo', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberTwo', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('memberThree')">
+          Member Three
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberThree', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberThree', false)">keyboard_arrow_down</i>
+        </p>
+        <p (click)="setSortType('memberFour')">
+          Member Four
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberFour', true)">keyboard_arrow_up</i>
+          <i class="material-icons" *ngIf="shouldDisplaySortIcon('memberFour', false)">keyboard_arrow_down</i>
+        </p>
       </div>
       <div class="tableContent">
-        <div class="tableData" *ngFor="let team of (teams| teamFilter: searchText)">
+        <div class="tableData" *ngFor="let team of (teams| teamFilter: searchText | teamSort:sortType:sortReverse)">
           <p>{{team.name}}</p>
           <p>{{team.memberOne}}</p>
           <p>{{team.memberTwo}}</p>

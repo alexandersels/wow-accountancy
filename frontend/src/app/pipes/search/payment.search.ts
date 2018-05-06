@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Payment } from '../shared/models/payment.model';
+import { Payment } from '../../shared/models/payment.model';
 
 
 @Pipe({
   name: 'paymentFilter',
-  pure: false
+  pure: true
 })
 export class PaymentSearchFilter implements PipeTransform {
 

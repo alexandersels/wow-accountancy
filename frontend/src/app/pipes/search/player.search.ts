@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Realm } from '../shared/models/realm.model';
-import { Player } from '../shared/models/player.model';
+import { Realm } from '../../shared/models/realm.model';
+import { Player } from '../../shared/models/player.model';
 
 
 @Pipe({
   name: 'playerFilter',
-  pure: false
+  pure: true
 })
 export class PlayerSearchFilter implements PipeTransform {
 
