@@ -2,19 +2,19 @@ package be.tetjes.angulartest.domain.commands.realm;
 
 public class CreateRealmCommand {
 
-    public static CreateRealmCommand of(String name, String region, String player) {
-        return new CreateRealmCommand(name, region, player);
+    public static CreateRealmCommand of(String name, String region, Long playerId) {
+        return new CreateRealmCommand(name, region, playerId);
     }
 
     private String name;
     private String region;
-    private String player;
+    private Long playerId;
 
-    private CreateRealmCommand(String name, String region, String player) {
+    private CreateRealmCommand(String name, String region, Long playerId) {
 
         this.name = name;
         this.region = region;
-        this.player = player;
+        this.playerId = playerId;
     }
 
     public String getName() {
@@ -25,5 +25,5 @@ public class CreateRealmCommand {
         return region;
     }
 
-    public String getPlayer() {return player;}
+    public Long getPlayerId() {return playerId;}
 }

@@ -33,11 +33,11 @@ public class Payment extends BaseEntity implements IPayment {
 
     @Column(name = "player")
     @NotNull
-    private String player;
+    private Long player;
 
     @Column(name = "realm")
     @NotNull
-    private String realm;
+    private Long realm;
 
     private Payment() {
     }
@@ -51,14 +51,13 @@ public class Payment extends BaseEntity implements IPayment {
         return id;
     }
 
-    public String getPlayer() {
+    public Long getPlayer() {
         return player;
     }
 
-    public String getRealm() {
+    public Long getRealm() {
         return realm;
     }
-
 
     public int getPrice() {
         return price;
@@ -80,12 +79,12 @@ public class Payment extends BaseEntity implements IPayment {
             return this;
         }
 
-        public Payment.Builder withPlayer(String player) {
+        public Payment.Builder withPlayer(Long player) {
             instance().player = player;
             return this;
         }
 
-        public Payment.Builder withRealm(String realm) {
+        public Payment.Builder withRealm(Long realm) {
             instance().realm = realm;
             return this;
         }

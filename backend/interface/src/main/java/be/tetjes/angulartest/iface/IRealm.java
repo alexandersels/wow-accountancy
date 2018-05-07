@@ -1,8 +1,10 @@
 package be.tetjes.angulartest.iface;
 
 public interface IRealm {
+
+    Long getId();
     String getName();
     String getRegion();
-    String getPlayer();
+    Long getPlayerId();
     int getVersion();
 }

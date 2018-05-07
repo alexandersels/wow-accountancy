@@ -40,7 +40,7 @@ public class TeamResource {
     }
 
     @PutMapping("/team")
-    public TeamDto createTeam(@RequestBody TeamDto teamDto) {
+    public void createTeam(@RequestBody TeamDto teamDto) {
         CreateTeamCommand command =CreateTeamCommand.getBuilder()
                 .withName(teamDto.name)
                 .withMemberOne(teamDto.memberOne.id)
@@ -50,9 +50,6 @@ public class TeamResource {
                 .build();
 
         teamService.createTeam(command);
-
-        return teamDto;
-
     }
 
 

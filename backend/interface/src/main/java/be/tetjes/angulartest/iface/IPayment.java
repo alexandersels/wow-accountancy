@@ -1,13 +1,14 @@
 package be.tetjes.angulartest.iface;
 
 public interface IPayment {
+
     Long getId();
 
     int getPrice();
 
-    String getPlayer();
+    Long getPlayer();
 
-    String getRealm();
+    Long getRealm();
 
     int getVersion();
 }

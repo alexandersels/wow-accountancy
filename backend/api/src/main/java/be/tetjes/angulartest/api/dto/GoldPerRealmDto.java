@@ -4,8 +4,8 @@ import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
 public class GoldPerRealmDto {
 
-    public String realm;
-    public String player;
+    public RealmDto realm;
+    public PlayerDto player;
     public int gold;
 
     public static Builder builder() {
@@ -19,12 +19,12 @@ public class GoldPerRealmDto {
             return new GoldPerRealmDto();
         }
 
-        public Builder withRealm(String realm) {
+        public Builder withRealm(RealmDto realm) {
             instance().realm = realm;
             return this;
         }
 
-        public Builder withPlayer(String player) {
+        public Builder withPlayer(PlayerDto player) {
             instance().player = player;
             return this;
         }

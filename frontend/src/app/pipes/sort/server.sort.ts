@@ -7,6 +7,7 @@ import { AvailableGoldPerRealm } from '../../shared/models/available-gold-per-re
   name: 'goldPerServerSort',
   pure: true
 })
+
 export class GoldPerServerSort extends Sort {
 
   transform(availableGold: AvailableGoldPerRealm[], sortType: string, reverse: boolean): AvailableGoldPerRealm[] {
@@ -20,11 +21,11 @@ export class GoldPerServerSort extends Sort {
   compare(n1: AvailableGoldPerRealm, n2: AvailableGoldPerRealm, sortType: string, reverse: boolean): number {
     switch (sortType) {
       case 'realm':
-        return this.compareValues(n1.realm, n2.realm, reverse)
-      case 'gold':
-        return this.compareValues(n1.gold, n2.gold, reverse)
+        return this.compareValues(n1.realm.name, n2.realm.name, reverse)
+      case 'price':
+        return this.compareIntValues(n1.gold, n2.gold, reverse)
       case 'player':
-        return this.compareValues(n1.player, n2.player, reverse)
+        return this.compareValues(n1.player.name, n2.player.name, reverse)
     }
 
   }

@@ -4,8 +4,8 @@ public class CreatePaymentCommand {
 
 
     private int price;
-    private String player;
-    private String realm;
+    private Long player;
+    private Long realm;
 
     private CreatePaymentCommand() {
 
@@ -14,8 +14,8 @@ public class CreatePaymentCommand {
     public int getPrice() {
         return price;
     }
-    public String getPlayer() {return player;}
-    public String getRealm() {return realm;}
+    public Long getPlayer() {return player;}
+    public Long getRealm() {return realm;}
 
     public static Builder getBuilder() {
         return new Builder();
@@ -30,12 +30,12 @@ public class CreatePaymentCommand {
             return this;
         }
 
-        public Builder withPlayer(String player) {
+        public Builder withPlayer(Long player) {
             command.player = player;
             return this;
         }
 
-        public Builder withRealm(String realm) {
+        public Builder withRealm(Long realm) {
             command.realm = realm;
             return this;
         }

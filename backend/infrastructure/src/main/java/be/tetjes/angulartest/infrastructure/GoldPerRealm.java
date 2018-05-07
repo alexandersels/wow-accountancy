@@ -4,16 +4,20 @@ public class GoldPerRealm {
 
 
     private int gold;
-    private String realm;
-    private String player;
+    private Long realmId;
+    private Long playerId;
 
-    public GoldPerRealm(String realm, String player) {
-        this.realm = realm;
-        this.player = player;
+    public GoldPerRealm(Long realmId, Long playerId) {
+        this.realmId = realmId;
+        this.playerId = playerId;
     }
 
-    public String getPlayer() {
-        return player;
+    public Long getPlayerId() {
+        return playerId;
+    }
+
+    public Long getRealmId() {
+        return realmId;
     }
 
     public int getGold() {
@@ -27,9 +31,7 @@ public class GoldPerRealm {
     public void decreaseGold(int gold) {
         this.gold -= gold;
     }
-    public String getRealm() {
-        return realm;
-    }
+
 
 
 }

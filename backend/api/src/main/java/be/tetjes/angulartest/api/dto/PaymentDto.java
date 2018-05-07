@@ -7,8 +7,8 @@ public class PaymentDto {
     public Long id;
     public int price;
     public int version;
-    public String player;
-    public String realm;
+    public PlayerDto player;
+    public RealmDto realm;
 
     public static Builder builder() {
         return new Builder();
@@ -36,12 +36,12 @@ public class PaymentDto {
             return this;
         }
 
-        public Builder withRealm(String realm) {
+        public Builder withRealm(RealmDto realm) {
             instance().realm = realm;
             return this;
         }
 
-        public Builder withPlayer(String player) {
+        public Builder withPlayer(PlayerDto player) {
             instance().player = player;
             return this;
         }

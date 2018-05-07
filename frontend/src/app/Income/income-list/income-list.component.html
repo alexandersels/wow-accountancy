@@ -54,11 +54,11 @@
         <div class="tableData" *ngFor="let income of (incomes | incomesFilter: searchText | incomeSort:sortType:sortReverse)"
              (click)="setSelectedIncome(income)"
              [ngClass]="{'selected-row': selectedIncome === income}">
-          <p>{{income.team}}</p>
+          <p>{{income.team.name}}</p>
           <p>{{income.price}} K</p>
           <p>{{income.date | date:'MM/dd/yyyy'}}</p>
           <p>{{income.dungeon}}</p>
-          <p>{{income.realm}}</p>
+          <p>{{income.realm.name}}</p>
         </div>
       </div>
     </div>

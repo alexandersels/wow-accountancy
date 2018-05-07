@@ -1,5 +1,8 @@
 package be.tetjes.angulartest.api.dto;
 
+import be.tetjes.angulartest.domain.entities.Player;
+import be.tetjes.angulartest.domain.entities.Realm;
+import be.tetjes.angulartest.domain.entities.Team;
 import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
 import java.util.Date;
@@ -11,8 +14,8 @@ public class IncomeDto {
     public String dungeon;
     public int version;
     public Date date;
-    public String realm;
-    public String team;
+    public RealmDto realm;
+    public TeamDto team;
 
     public static Builder builder() {
         return new Builder();
@@ -50,12 +53,12 @@ public class IncomeDto {
             return this;
         }
 
-        public Builder withRealm(String realm) {
+        public Builder withRealm(RealmDto realm) {
             instance().realm = realm;
             return this;
         }
 
-        public Builder withTeam(String team) {
+        public Builder withTeam(TeamDto team) {
             instance().team = team;
             return this;
         }

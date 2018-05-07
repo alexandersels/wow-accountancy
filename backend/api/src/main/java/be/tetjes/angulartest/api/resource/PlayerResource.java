@@ -36,8 +36,8 @@ public class PlayerResource {
     }
 
     @PutMapping("/player")
-    public PlayerDto createPlayer(@RequestBody PlayerDto playerDto) {
+    public void createPlayer(@RequestBody PlayerDto playerDto) {
         CreatePlayerCommand command = CreatePlayerCommand.of(playerDto.name);
-        return mapper.mapToDto(service.createPlayer(command));
+        service.createPlayer(command);
     }
 }

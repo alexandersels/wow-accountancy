@@ -1,7 +1,6 @@
 package be.tetjes.angulartest.domain.entities;
 
 import be.tetjes.angulartest.domain.commands.realm.CreateRealmCommand;
-import be.tetjes.angulartest.iface.IPlayer;
 import be.tetjes.angulartest.iface.IRealm;
 import be.tetjes.angulartest.infrastructure.BaseEntity;
 import be.tetjes.angulartest.infrastructure.CommandHandler;
@@ -19,11 +18,14 @@ public class Realm extends BaseEntity implements IRealm {
         return getBuilder()
                 .withName(command.getName())
                 .withRegion(command.getRegion())
-                .withPlayer(command.getPlayer())
+                .withPlayerId(command.getPlayerId())
                 .build();
     }
 
     @Id
+    @Column(name = "id")
+    private Long id;
+
     @Column(name = "name")
     @NotNull
     private String name;
@@ -32,8 +34,8 @@ public class Realm extends BaseEntity implements IRealm {
     @NotNull
     private String region;
 
-    @JoinColumn(name = "player")
-    private String player;
+    @JoinColumn(name = "playerId")
+    private Long playerId;
 
     private Realm() {
     }
@@ -41,6 +43,10 @@ public class Realm extends BaseEntity implements IRealm {
     @Override
     protected List<CommandHandler> getCommandHandlers() {
         return new ArrayList<CommandHandler>();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -53,8 +59,8 @@ public class Realm extends BaseEntity implements IRealm {
         return region;
     }
 
-    public String getPlayer() {
-        return player;
+    public Long getPlayerId() {
+        return playerId;
     }
 
     public static Realm.Builder getBuilder() {
@@ -68,18 +74,23 @@ public class Realm extends BaseEntity implements IRealm {
             return new Realm();
         }
 
-        public Realm.Builder withName(String name) {
+        public Builder withId(Long id) {
+            instance().id = id;
+            return this;
+        }
+
+        public Builder withName(String name) {
             instance().name = name;
             return this;
         }
 
-        public Realm.Builder withRegion(String region) {
+        public Builder withRegion(String region) {
             instance().region = region;
             return this;
         }
 
-        public Realm.Builder withPlayer(String player) {
-            instance().player = player;
+        public Builder withPlayerId(Long playerId) {
+            instance().playerId = playerId;
             return this;
         }
     }

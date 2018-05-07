@@ -3,6 +3,7 @@ package be.tetjes.angulartest.iface;
 import java.util.Date;
 
 public interface IIncome {
+
     Long getId();
 
     Date getDate();
@@ -13,7 +14,7 @@ public interface IIncome {
 
     int getVersion();
 
-    String getRealm();
+    Long getRealm();
 
-    String getTeam();
+    Long getTeam();
 }

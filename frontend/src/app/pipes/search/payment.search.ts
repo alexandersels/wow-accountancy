@@ -16,7 +16,7 @@ export class PaymentSearchFilter implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     return payments.filter(payment => {
-      return payment.player.toLowerCase().includes(searchText)
+      return payment.player.name.toLowerCase().includes(searchText)
     });
   }
 }

@@ -38,9 +38,9 @@
           <div class="tableData" *ngFor="let goldPerRealm of (availableGold.goldPerRealm | goldPerServerFilter: searchText | goldPerServerSort:sortType:sortReverse)"
                (click)="setSelectedGold(goldPerRealm)"
                [ngClass]="{'selected-row': selectedGold === goldPerRealm}">
-            <p>{{goldPerRealm.realm}}</p>
+            <p>{{goldPerRealm.realm.name}}</p>
             <p>{{goldPerRealm.gold}} K</p>
-            <p>{{goldPerRealm.player}}</p>
+            <p>{{goldPerRealm.player.name}}</p>
           </div>
         </div>
       </div>

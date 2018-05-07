@@ -44,9 +44,9 @@
         <div class="tableData" *ngFor="let payment of (payments |  paymentFilter: searchText | paymentSort:sortType:sortReverse)"
              (click)="setSelectedPayment(payment)"
              [ngClass]="{'selected-row': selectedPayment === payment}">
-          <p>{{payment.player}}</p>
+          <p>{{payment.player.name}}</p>
           <p>{{payment.price}} K</p>
-          <p>{{payment.realm}}</p>
+          <p>{{payment.realm.name}}</p>
         </div>
       </div>
     </div>

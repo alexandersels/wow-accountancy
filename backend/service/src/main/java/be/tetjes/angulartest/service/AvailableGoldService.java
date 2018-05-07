@@ -41,17 +41,17 @@ public class AvailableGoldService {
 
             String realmName = realm.getName();
             if(!dictionary.containsKey(realmName)) {
-                dictionary.put(realmName, new GoldPerRealm(realmName, realm.getPlayer()));
+                dictionary.put(realmName, new GoldPerRealm(realm.getId(), realm.getPlayerId()));
             }
             GoldPerRealm gold = dictionary.get(realmName);
 
-            for(IIncome income : getIncomesByRealm(realmName, incomes)) {
+            for(IIncome income : getIncomesByRealm(realm.getId(), incomes)) {
                 gold.increaseGold(income.getPrice());
                 totalGold += income.getPrice();
                 remainingGold += income.getPrice();
             }
 
-            for(IPayment payment: getPaymentsByRealm(realmName, payments)) {
+            for(IPayment payment: getPaymentsByRealm(realm.getId(), payments)) {
                 gold.decreaseGold(payment.getPrice());
                 remainingGold -= payment.getPrice();
             }
@@ -61,17 +61,17 @@ public class AvailableGoldService {
     }
 
 
-    private List<IIncome> getIncomesByRealm(String name, Collection<IIncome> incomes) {
+    private List<IIncome> getIncomesByRealm(Long realmId, Collection<IIncome> incomes) {
         return incomes
                 .stream()
-                .filter(i -> i.getRealm().equals(name))
+                .filter(i -> i.getRealm().equals(realmId))
                 .collect(Collectors.toList());
     }
 
-    private List<IPayment> getPaymentsByRealm(String name, Collection<IPayment> payments) {
+    private List<IPayment> getPaymentsByRealm(Long realmId, Collection<IPayment> payments) {
         return payments
                 .stream()
-                .filter(i -> i.getRealm().equals(name))
+                .filter(i -> i.getRealm().equals(realmId))
                 .collect(Collectors.toList());
     }
 }

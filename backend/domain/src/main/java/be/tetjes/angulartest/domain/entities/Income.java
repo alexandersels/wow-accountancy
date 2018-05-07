@@ -43,10 +43,10 @@ public class Income extends BaseEntity implements IIncome {
     private int price;
 
     @Column(name = "realm")
-    private String realm;
+    private Long realm;
 
     @Column(name = "team")
-    private String team;
+    private Long team;
 
     private Income() {
     }
@@ -72,11 +72,11 @@ public class Income extends BaseEntity implements IIncome {
         return date;
     }
 
-    public String getRealm() {
+    public Long getRealm() {
         return realm;
     }
 
-    public String getTeam() {
+    public Long getTeam() {
         return team;
     }
 
@@ -106,12 +106,12 @@ public class Income extends BaseEntity implements IIncome {
             return this;
         }
 
-        public Income.Builder withRealm(String realm) {
+        public Income.Builder withRealm(Long realm) {
             instance().realm = realm;
             return this;
         }
 
-        public Income.Builder withTeam(String team) {
+        public Income.Builder withTeam(Long team) {
             instance().team = team;
             return this;
         }

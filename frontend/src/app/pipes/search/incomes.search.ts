@@ -18,7 +18,7 @@ export class IncomesSearchFilter implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     return incomes.filter(income => {
-      return income.team.toLowerCase().includes(searchText)
+      return income.team.name.toLowerCase().includes(searchText)
     });
   }
 }

@@ -10,8 +10,8 @@ public class CreateIncomeCommand {
     private int price;
     private String dungeon;
     private Date date;
-    private String realm;
-    private String team;
+    private Long realm;
+    private Long team;
 
     private CreateIncomeCommand() {
         this.date = new Date();
@@ -31,11 +31,11 @@ public class CreateIncomeCommand {
         return date;
     }
 
-    public String getRealm() {
+    public Long getRealm() {
         return realm;
     }
 
-    public String getTeam() { return team; }
+    public Long getTeam() { return team; }
 
     public static Builder getBuilder() {
         return new Builder();
@@ -58,12 +58,12 @@ public class CreateIncomeCommand {
             return this;
         }
 
-        public Builder withRealm(String realm) {
+        public Builder withRealm(Long realm) {
             instance().realm = realm;
             return this;
         }
 
-        public Builder withTeam(String team) {
+        public Builder withTeam(Long team) {
             instance().team = team;
             return this;
         }
