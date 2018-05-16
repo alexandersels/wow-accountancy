@@ -9,6 +9,7 @@ import be.tetjes.angulartest.service.RealmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -34,17 +35,22 @@ public class RealmResource {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/realm/{name}")
-    public RealmDto getRealm(@PathVariable String name)
+    @GetMapping("/realm/{id}")
+    public RealmDto getRealm(@PathVariable Long id)
     {
         Collection<IPlayer> players = playerService.getPlayers();
-        return mapper.mapToDto(realmService.getRealm(name), players);
+        return mapper.mapToDto(realmService.getRealm(id), players);
     }
 
     @PutMapping("/realm")
     public void createRealm(@RequestBody RealmDto realmDto) {
         CreateRealmCommand command = CreateRealmCommand.of(realmDto.name, realmDto.region, realmDto.player.id);
         realmService.createRealm(command);
+    }
+
+    @PostMapping("/realm")
+    public void updateRealm(@RequestBody RealmDto realmDto) {
+        System.out.println("jajaja");
     }
 
 

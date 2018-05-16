@@ -26,7 +26,7 @@ export class RealmSort extends Sort {
        case "region":
          return this.compareValues(n1.region, n2.region, reverse)
        case "player":
-         return this.compareValues(n1.player, n2.player, reverse)
+         return this.compareValues(n1.player.name, n2.player.name, reverse)
      }
 
   }

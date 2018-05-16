@@ -1,13 +1,10 @@
 import { Realm } from './realm.model';
 import { Player } from './player.model';
 
-export class AvailableGoldPerRealm {
+export interface AvailableGoldPerRealm {
 
-  public realm: Realm;
-  public gold: number;
-  public player: Player;
+  realm: Realm;
+  gold: number;
+  player: Player;
 
-  constructor() {
-
-  }
 }

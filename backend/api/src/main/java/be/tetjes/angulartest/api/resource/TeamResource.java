@@ -33,10 +33,10 @@ public class TeamResource {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/team/{name}")
-    public TeamDto getTeam(@PathVariable String name) {
+    @GetMapping("/team/{id}")
+    public TeamDto getTeam(@PathVariable Long id) {
         Collection<IPlayer> players = playerService.getPlayers();
-        return mapper.mapToDto(teamService.getTeam(name), players);
+        return mapper.mapToDto(teamService.getTeam(id), players);
     }
 
     @PutMapping("/team")

@@ -72,11 +72,11 @@ public class Income extends BaseEntity implements IIncome {
         return date;
     }
 
-    public Long getRealm() {
+    public Long getRealmId() {
         return realm;
     }
 
-    public Long getTeam() {
+    public Long getTeamId() {
         return team;
     }
 

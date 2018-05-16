@@ -24,13 +24,13 @@ export class TeamSort extends Sort {
       case 'name':
         return this.compareValues(n1.name, n2.name, reverse);
       case 'memberOne':
-        return this.compareValues(n1.memberOne, n2.memberOne, reverse);
+        return this.compareValues(n1.memberOne.name, n2.memberOne.name, reverse);
       case 'memberTwo':
-        return this.compareValues(n1.memberTwo, n2.memberTwo, reverse);
+        return this.compareValues(n1.memberTwo.name, n2.memberTwo.name, reverse);
       case 'memberThree':
-        return this.compareValues(n1.memberThree, n2.memberThree, reverse);
+        return this.compareValues(n1.memberThree.name, n2.memberThree.name, reverse);
       case 'memberFour':
-        return this.compareValues(n1.memberFour, n2.memberFour, reverse);
+        return this.compareValues(n1.memberFour.name, n2.memberFour.name, reverse);
     }
 
   }

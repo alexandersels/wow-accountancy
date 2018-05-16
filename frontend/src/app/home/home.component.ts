@@ -34,8 +34,8 @@ export class HomeComponent implements OnInit {
     this.pieChartData = {
       chartType: 'PieChart',
       dataTable: this.dataTable,
-      options: {'title': 'Tasks'},
+      options: {'title': 'Tasks',
+       'pieHole': 0.4}
     };
-
   }
 }

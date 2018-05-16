@@ -20,8 +20,8 @@ public class PaymentMapper {
         return PaymentDto.builder()
                 .withId(income.getId())
                 .withPrice(income.getPrice())
-                .withPlayer(findPlayer(income.getPlayer(), players))
-                .withRealm(findRealm(income.getRealm(), realms, players))
+                .withPlayer(findPlayer(income.getPlayerId(), players))
+                .withRealm(findRealm(income.getRealmId(), realms, players))
                 .withVersion(income.getVersion())
                 .build();
     }

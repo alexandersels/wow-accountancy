@@ -20,13 +20,13 @@ export class IncomeSort extends Sort {
   compare(n1: Income, n2: Income, sortType: string, reverse: boolean): number {
     switch (sortType) {
       case 'team':
-        return this.compareValues(n1.team, n2.team, reverse);
+        return this.compareValues(n1.team.name, n2.team.name, reverse);
       case 'realm':
-        return this.compareValues(n1.realm, n2.realm, reverse)
+        return this.compareValues(n1.realm.name, n2.realm.name, reverse)
       case 'price':
-        return this.compareValues(n1.price, n2.price, reverse)
+        return this.compareIntValues(n1.price, n2.price, reverse)
       case 'date':
-        return this.compareValues(n1.date, n2.date, reverse)
+        return this.compareDateValues(n1.date, n2.date, reverse)
       case 'dungeon':
         return this.compareValues(n1.dungeon, n2.dungeon, reverse);
     }

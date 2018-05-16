@@ -1,9 +1,6 @@
-export class Player {
+export interface Player {
 
   id: number;
   name: string;
 
-  constructor()
-  {
-  }
 }

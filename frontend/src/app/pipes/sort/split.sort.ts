@@ -1,6 +1,5 @@
 import { Pipe } from '@angular/core';
 import { Sort } from './sort';
-import { AvailableGoldPerRealm } from '../../shared/models/available-gold-per-realm';
 import { Split } from '../../shared/models/split.model';
 
 
@@ -21,11 +20,11 @@ export class SplitSort extends Sort {
   compare(n1: Split, n2: Split, sortType: string, reverse: boolean): number {
     switch (sortType) {
       case 'amountOfRuns':
-        return this.compareValues(n1.amountOfRuns, n2.amountOfRuns, reverse)
+        return this.compareIntValues(n1.amountOfRuns, n2.amountOfRuns, reverse)
       case 'debt':
-        return this.compareValues(n1.debt, n2.debt, reverse)
+        return this.compareIntValues(n1.debt, n2.debt, reverse)
       case 'player':
-        return this.compareValues(n1.playerName, n2.playerName, reverse)
+        return this.compareValues(n1.player.name, n2.player.name, reverse)
     }
 
   }

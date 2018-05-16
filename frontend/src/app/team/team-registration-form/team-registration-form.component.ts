@@ -14,8 +14,8 @@ import { Location } from '@angular/common';
 })
 export class TeamRegistrationFormComponent extends Unsubscribe implements OnInit {
 
-  public team = new Team();
-  public players: Player[];
+  team: Team = {};
+  players: Player[];
 
   form: FormGroup;
 

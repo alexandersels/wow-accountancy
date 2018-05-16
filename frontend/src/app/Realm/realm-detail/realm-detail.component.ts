@@ -17,19 +17,25 @@ export class RealmDetailComponent extends Unsubscribe implements OnInit {
   @Input()
   realm: Realm;
 
+  players: Player[];
+
   constructor(private route: ActivatedRoute,
               private realmService: RealmService,
               private playerService: PlayerService,
-              private location: Location)
-  {
+              private location: Location) {
     super();
   }
 
   ngOnInit() {
+    this.playerService.getPlayers().subscribe(players => this.players = players);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  update(): void {
+    this.realmService.updateRealm(this.realm).subscribe();
   }
 
 }

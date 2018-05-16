@@ -39,7 +39,7 @@
           <div class="tableData" *ngFor="let split of (splits| splitFilter: searchText | splitSort:sortType:sortReverse)"
                (click)="setSelectedSplit(split)"
                [ngClass]="{'selected-row': selectedSplit === split}">
-            <p>{{split.playerName}}</p>
+            <p>{{split.player.name}}</p>
             <p>{{split.debt}} K</p>
             <p>{{split.amountOfRuns}}</p>
           </div>

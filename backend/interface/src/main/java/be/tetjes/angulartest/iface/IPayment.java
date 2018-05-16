@@ -6,9 +6,9 @@ public interface IPayment {
 
     int getPrice();
 
-    Long getPlayer();
+    Long getPlayerId();
 
-    Long getRealm();
+    Long getRealmId();
 
     int getVersion();
 }

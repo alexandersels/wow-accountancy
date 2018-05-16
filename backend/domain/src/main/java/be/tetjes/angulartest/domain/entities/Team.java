@@ -52,19 +52,19 @@ public class Team extends BaseEntity implements ITeam {
         return name;
     }
 
-    public Long getMemberOne() {
+    public Long getMemberOneId() {
         return memberOne;
     }
 
-    public Long getMemberTwo() {
+    public Long getMemberTwoId() {
         return memberTwo;
     }
 
-    public Long getMemberThree() {
+    public Long getMemberThreeId() {
         return memberThree;
     }
 
-    public Long getMemberFour() {
+    public Long getMemberFourId() {
         return memberFour;
     }
 

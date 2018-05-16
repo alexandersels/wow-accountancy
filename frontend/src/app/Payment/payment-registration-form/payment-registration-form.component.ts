@@ -16,7 +16,7 @@ import { Location } from '@angular/common';
 })
 export class PaymentRegistrationFormComponent extends Unsubscribe implements OnInit {
 
-  payment = new Payment();
+  payment: Payment ={};
 
   players: Player[];
   realms: Realm[];

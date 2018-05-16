@@ -2,7 +2,6 @@ package be.tetjes.angulartest.api.mapper;
 
 import be.tetjes.angulartest.api.dto.PlayerDto;
 import be.tetjes.angulartest.api.dto.TeamDto;
-import be.tetjes.angulartest.domain.entities.Player;
 import be.tetjes.angulartest.iface.IPlayer;
 import be.tetjes.angulartest.iface.ITeam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,10 @@ public class TeamMapper {
     public TeamDto mapToDto(ITeam team, Collection<IPlayer> players) {
         return TeamDto.getBuilder()
                 .withName(team.getName())
-                .withMemberOne(findPlayer(team.getMemberOne(), players))
-                .withMemberTwo(findPlayer(team.getMemberTwo(), players))
-                .withMemberThree(findPlayer(team.getMemberThree(), players))
-                .withMemberFour(findPlayer(team.getMemberFour(), players))
+                .withMemberOne(findPlayer(team.getMemberOneId(), players))
+                .withMemberTwo(findPlayer(team.getMemberTwoId(), players))
+                .withMemberThree(findPlayer(team.getMemberThreeId(), players))
+                .withMemberFour(findPlayer(team.getMemberFourId(), players))
                 .build();
     }
 

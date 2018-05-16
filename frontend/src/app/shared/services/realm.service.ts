@@ -21,4 +21,8 @@ export class RealmService {
   getRealm(name: string) : Observable<Realm> {
     return this.http.get<Realm>('/api/realm/' + name);
   }
+
+  updateRealm(realm: Realm) : Observable<Realm> {
+    return this.http.post<Realm>('/api/realm/', realm);
+  }
 }

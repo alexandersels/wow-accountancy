@@ -1,16 +1,13 @@
 import { Realm } from './realm.model';
 import { Team } from './team.model';
 
-export class Income {
+export interface Income {
 
-  public dungeon: string;
-  public price: number;
-  public realm: Realm;
-  public id: number;
-  public team: Team;
-  public date: Date;
+  dungeon?: string;
+  price?: number;
+  realm?: Realm;
+  id?: number;
+  team?: Team;
+  date?: Date;
 
-  constructor() {
-
-  }
 }

@@ -30,9 +30,9 @@ public class PlayerResource {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/player/{name}")
-    public PlayerDto getPlayer(@PathVariable String name) {
-        return mapper.mapToDto(service.getPlayer(name));
+    @GetMapping("/player/{id}")
+    public PlayerDto getPlayer(@PathVariable Long id) {
+        return mapper.mapToDto(service.getPlayer(id));
     }
 
     @PutMapping("/player")

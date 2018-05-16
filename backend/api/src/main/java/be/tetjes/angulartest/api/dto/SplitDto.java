@@ -4,7 +4,7 @@ import be.tetjes.angulartest.infrastructure.NestedBuilder;
 
 public class SplitDto {
 
-    public String playerName;
+    public PlayerDto player;
     public double debt;
     public int amountOfRuns;
     public int totalGoldEarned;
@@ -13,15 +13,15 @@ public class SplitDto {
         return new Builder();
     }
 
-    public static class Builder extends NestedBuilder<SplitDto>{
+    public static class Builder extends NestedBuilder<SplitDto> {
 
         @Override
         protected SplitDto createInstance() {
             return new SplitDto();
         }
 
-        public Builder withPlayerName(String playerName) {
-            instance().playerName = playerName;
+        public Builder withPlayer(PlayerDto player) {
+            instance().player = player;
             return this;
         }
 

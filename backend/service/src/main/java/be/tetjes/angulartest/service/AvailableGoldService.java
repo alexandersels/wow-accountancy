@@ -64,14 +64,14 @@ public class AvailableGoldService {
     private List<IIncome> getIncomesByRealm(Long realmId, Collection<IIncome> incomes) {
         return incomes
                 .stream()
-                .filter(i -> i.getRealm().equals(realmId))
+                .filter(i -> i.getRealmId().equals(realmId))
                 .collect(Collectors.toList());
     }
 
     private List<IPayment> getPaymentsByRealm(Long realmId, Collection<IPayment> payments) {
         return payments
                 .stream()
-                .filter(i -> i.getRealm().equals(realmId))
+                .filter(i -> i.getRealmId().equals(realmId))
                 .collect(Collectors.toList());
     }
 }

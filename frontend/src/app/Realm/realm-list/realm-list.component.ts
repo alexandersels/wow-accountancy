@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RealmService } from '../../shared/services/realm.service';
 import { Realm } from '../../shared/models/realm.model';
-import { Unsubscribe } from '../../shared/util/unsubscribe';
 import { ListComponentBase } from '../../shared/parents/listComponentBase';
+import { Player } from '../../shared/models/player.model';
+import { PlayerService } from '../../shared/services/player.service';
 
 @Component({
   selector: 'app-realm-list',
@@ -12,18 +13,24 @@ import { ListComponentBase } from '../../shared/parents/listComponentBase';
 export class RealmListComponent extends ListComponentBase {
 
   realms: Realm[];
+  players: Player[];
 
   selectedRealm: Realm;
 
-  constructor(private realmService: RealmService) {
-    super("name");
+  constructor(private realmService: RealmService,
+              private playerService: PlayerService) {
+    super('name');
   }
 
   ngOnInit() {
-    this.getRealms();
+    this.loadDate();
   }
 
-  getRealms(): void {
+  loadDate(): void {
+    this.loadRealms();
+  }
+
+  loadRealms(): void {
     this.realmService.getRealms().subscribe(realms => this.realms = realms);
   }
 

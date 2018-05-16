@@ -22,4 +22,13 @@ export abstract class Sort implements PipeTransform {
     }
   }
 
+  public compareDateValues(valueOne: Date, valueTwo: Date, reverse: boolean) : number {
+    if(reverse) {
+      return valueOne > valueTwo ? -1:1;
+    }
+    else {
+      return valueOne < valueTwo ? -1:1;
+    }
+  }
+
 }

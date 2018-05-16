@@ -31,8 +31,8 @@ public class RealmService {
     }
 
     @Transactional
-    public IRealm getRealm(String name) {
-        return repository.findOne(name);
+    public IRealm getRealm(Long id) {
+        return repository.findOne(id);
     }
 
 }

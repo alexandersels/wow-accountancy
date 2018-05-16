@@ -28,9 +28,9 @@ public class SplitResource {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/split/{name}")
-    public SplitDto getSplit(@PathVariable String name) {
-        return mapper.mapToDto(splitService.getSplit(name));
+    @GetMapping("/split/{id}")
+    public SplitDto getSplit(@PathVariable Long id) {
+        return mapper.mapToDto(splitService.getSplit(id));
     }
 
 }

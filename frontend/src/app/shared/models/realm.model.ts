@@ -1,13 +1,10 @@
 import { Player } from './player.model';
 
-export class Realm {
+export interface Realm {
 
-  id: number;
-  name: string
-  region: string
-  player: Player
+  id?: number;
+  name?: string
+  region?: string
+  player?: Player
 
-  constructor() {
-
-  }
 }

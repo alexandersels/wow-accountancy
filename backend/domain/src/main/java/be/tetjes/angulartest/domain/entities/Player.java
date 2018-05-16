@@ -1,15 +1,17 @@
 package be.tetjes.angulartest.domain.entities;
 
 import be.tetjes.angulartest.domain.commands.player.CreatePlayerCommand;
+import be.tetjes.angulartest.domain.commands.player.UpdatePlayerCommand;
 import be.tetjes.angulartest.iface.IPlayer;
 import be.tetjes.angulartest.infrastructure.BaseEntity;
 import be.tetjes.angulartest.infrastructure.CommandHandler;
+import be.tetjes.angulartest.infrastructure.CommandHandlerImpl;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
+import static com.google.common.collect.Lists.newArrayList;
 
 @Entity
 @Table(name = "player")
@@ -40,9 +42,14 @@ public class Player extends BaseEntity implements IPlayer {
     public Long getId() {
         return id;
     }
+
     @Override
     protected List<CommandHandler> getCommandHandlers() {
-        return new ArrayList<CommandHandler>();
+        return newArrayList(new CommandHandlerImpl<>(UpdatePlayerCommand.class, this::update));
+    }
+
+    private void update(UpdatePlayerCommand command) {
+
     }
 
     public static Builder builder() {

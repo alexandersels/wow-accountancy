@@ -28,8 +28,8 @@ public class IncomeMapper {
                 .withDate(income.getDate())
                 .withDungeon(income.getDungeon())
                 .withPrice(income.getPrice())
-                .withRealm(findRealm(income.getRealm(), realms, players))
-                .withTeam(findTeam(income.getTeam(), teams, players))
+                .withRealm(findRealm(income.getRealmId(), realms, players))
+                .withTeam(findTeam(income.getTeamId(), teams, players))
                 .withVersion(income.getVersion())
                 .build();
     }

@@ -34,22 +34,22 @@ public class SplitService {
 
         Collection<IPlayer> players = playerService.getPlayers();
         for (IPlayer player : players) {
-            splits.add(getSplit(player.getName()));
+            splits.add(getSplit(player.getId()));
         }
 
         return splits;
     }
 
     @Transactional
-    public Split getSplit(String playerName) {
-        Collection<ITeam> teams = teamService.getTeamsForPlayer(playerName);
+    public Split getSplit(Long playerId) {
+        Collection<ITeam> teams = teamService.getTeamsForPlayer(playerId);
 
         int totalGold = 0;
         double split = 0;
         int amountOfRuns = 0;
 
         for (ITeam team : teams) {
-            Collection<IIncome> incomes = incomeService.getIncomesPerTeam(team.getName());
+            Collection<IIncome> incomes = incomeService.getIncomesPerTeam(team.getId());
             for (IIncome income : incomes) {
                 totalGold += income.getPrice();
                 split = split + (income.getPrice() / 4);
@@ -57,11 +57,12 @@ public class SplitService {
             }
         }
 
-        Collection<IPayment> payments = paymentService.getPaymentsPerPlayer(playerName);
+        Collection<IPayment> payments = paymentService.getPaymentsPerPlayer(playerId);
         for(IPayment payment: payments) {
             split = split - payment.getPrice();
         }
 
-        return new Split(playerName, split, amountOfRuns, totalGold);
+        IPlayer player = playerService.getPlayer(playerId);
+        return new Split(player, split, amountOfRuns, totalGold);
     }
 }

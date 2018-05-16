@@ -16,7 +16,7 @@ import { Location } from '@angular/common';
 })
 export class IncomeRegistrationFormComponent extends Unsubscribe implements OnInit {
 
-  income = new Income();
+  income: Income = {};
   realms: Realm[];
   teams: Team[];
 

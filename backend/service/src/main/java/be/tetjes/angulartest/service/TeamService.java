@@ -26,8 +26,8 @@ public class TeamService {
     }
 
     @Transactional
-    public ITeam getTeam(String name) {
-        return repository.findOne(name);
+    public ITeam getTeam(Long id) {
+        return repository.findOne(id);
     }
 
     @Transactional
@@ -36,18 +36,18 @@ public class TeamService {
     }
 
     @Transactional
-    public Collection<ITeam> getTeamsForPlayer(String playerName) {
+    public Collection<ITeam> getTeamsForPlayer(Long playerId) {
         return repository.findAll()
                 .stream()
-                .filter(team -> isPlayerMemberOf(team, playerName))
+                .filter(team -> isPlayerMemberOf(team, playerId))
                 .map(Team.class::cast)
                 .collect(Collectors.toList());
     }
 
-    private boolean isPlayerMemberOf(ITeam team, String playerName) {
-        return team.getMemberOne().equals(playerName) ||
-                team.getMemberTwo().equals(playerName) ||
-                team.getMemberThree().equals(playerName) ||
-                team.getMemberFour().equals(playerName);
+    private boolean isPlayerMemberOf(ITeam team, Long playerId) {
+        return team.getMemberOneId() == playerId ||
+                team.getMemberTwoId()== playerId ||
+                team.getMemberThreeId()== playerId ||
+                team.getMemberFourId() == playerId;
     }
 }

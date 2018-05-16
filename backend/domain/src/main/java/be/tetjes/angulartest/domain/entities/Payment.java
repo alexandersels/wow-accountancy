@@ -51,11 +51,11 @@ public class Payment extends BaseEntity implements IPayment {
         return id;
     }
 
-    public Long getPlayer() {
+    public Long getPlayerId() {
         return player;
     }
 
-    public Long getRealm() {
+    public Long getRealmId() {
         return realm;
     }
 

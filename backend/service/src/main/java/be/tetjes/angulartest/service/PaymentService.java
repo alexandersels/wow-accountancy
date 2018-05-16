@@ -42,10 +42,10 @@ public class PaymentService {
     }
 
     @Transactional
-    public Collection<IPayment> getPaymentsPerPlayer(String playerName) {
+    public Collection<IPayment> getPaymentsPerPlayer(Long playerId) {
         return getPayments()
                 .stream()
-                .filter(p -> p.getPlayer().equals(playerName))
+                .filter(p -> p.getPlayerId() == playerId)
                 .collect(Collectors.toList());
     }
 

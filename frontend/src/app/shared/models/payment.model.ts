@@ -1,15 +1,11 @@
 import { Realm } from './realm.model';
 import { Player } from './player.model';
 
-export class Payment {
+export interface Payment {
 
-  id: number;
-  price: number;
-  player: Player;
-  realm: Realm;
-
-  constructor() {
-
-  }
+  id?: number;
+  price?: number;
+  player?: Player;
+  realm?: Realm;
 
 }

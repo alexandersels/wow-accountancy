@@ -1,19 +1,14 @@
 package be.tetjes.angulartest.service;
 
 import be.tetjes.angulartest.domain.commands.income.CreateIncomeCommand;
-import be.tetjes.angulartest.domain.commands.player.CreatePlayerCommand;
 import be.tetjes.angulartest.domain.entities.Income;
-import be.tetjes.angulartest.domain.entities.Player;
 import be.tetjes.angulartest.domain.repositories.IncomeRepository;
-import be.tetjes.angulartest.domain.repositories.PlayerRepository;
 import be.tetjes.angulartest.iface.IIncome;
-import be.tetjes.angulartest.iface.IPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -42,10 +37,10 @@ public class IncomeService {
     }
 
     @Transactional
-    public Collection<IIncome> getIncomesPerTeam(String teamName) {
+    public Collection<IIncome> getIncomesPerTeam(Long teamId) {
         Collection<IIncome> incomes = getIncomes()
                 .stream()
-                .filter(income -> teamName.equals(income.getTeam()))
+                .filter(income -> teamId == income.getTeamId())
                 .collect(Collectors.toList());
         return incomes;
     }

@@ -32,8 +32,10 @@ public class PlayerService {
     }
 
     @Transactional
-    public IPlayer getPlayer(String name) {
-        return repository.findOne(name);
+    public IPlayer getPlayer(Long id) {
+        return repository.findOne(id);
     }
+
+
 
 }

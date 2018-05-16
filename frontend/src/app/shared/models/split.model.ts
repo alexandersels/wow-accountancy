@@ -1,12 +1,11 @@
-export class Split {
+import { Player } from './player.model';
 
-  playerName: string;
+export interface Split {
+
+  player: Player;
   debt: number;
   amountOfRuns: number;
   totalGoldEarned: number;
 
-  constructor() {
-
-  }
 
 }

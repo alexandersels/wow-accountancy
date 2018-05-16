@@ -14,7 +14,7 @@ public interface IIncome {
 
     int getVersion();
 
-    Long getRealm();
+    Long getRealmId();
 
-    Long getTeam();
+    Long getTeamId();
 }

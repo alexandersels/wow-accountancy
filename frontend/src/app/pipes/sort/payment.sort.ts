@@ -22,11 +22,11 @@ export class PaymentSort extends Sort {
    {
      switch (sortType) {
        case "player":
-         return this.compareValues(n1.player, n2.player, reverse);
+         return this.compareValues(n1.player.name, n2.player.name, reverse);
        case "realm":
-         return this.compareValues(n1.realm, n2.realm, reverse)
+         return this.compareValues(n1.realm.name, n2.realm.name, reverse)
        case "price":
-         return this.compareValues(n1.price, n2.price, reverse)
+         return this.compareIntValues(n1.price, n2.price, reverse)
      }
 
   }

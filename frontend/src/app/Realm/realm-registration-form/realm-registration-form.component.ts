@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 })
 export class RealmRegistrationFormComponent extends Unsubscribe implements OnInit {
 
-  model = new Realm();
+  model: Realm = {};
   players: Player[];
 
   form: FormGroup;

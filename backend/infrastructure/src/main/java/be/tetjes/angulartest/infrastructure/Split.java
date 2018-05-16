@@ -1,21 +1,23 @@
 package be.tetjes.angulartest.infrastructure;
 
+import be.tetjes.angulartest.iface.IPlayer;
+
 public class Split {
 
-    private String playerName;
+    private IPlayer player;
     private double debt;
     private int amountOfRuns;
     private int totalGoldEarned;
 
-    public Split(String playerName, double debt, int amountOfRuns, int totalGoldEarned) {
-        this.playerName = playerName;
+    public Split(IPlayer player, double debt, int amountOfRuns, int totalGoldEarned) {
+        this.player = player;
         this.debt = debt;
         this.amountOfRuns = amountOfRuns;
         this.totalGoldEarned = totalGoldEarned;
     }
 
-    public String getPlayerName() {
-        return playerName;
+    public IPlayer getPlayer() {
+        return player;
     }
 
     public double getDebt() {

@@ -1,6 +1,41 @@
 <div *ngIf="realm">
-  <h2>Realm Details</h2>
-  <div><span>Name: </span>{{realm.name}}</div>
-  <div><span>Region: </span>{{realm.region}}</div>
-  <div><span>Player: </span>{{realm.player}}</div>
+  <h1 class="formTitle">Details</h1>
+  <p class="text-muted">Realm details</p>
+  <form (ngSubmit)="update()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="material-icons">language</i>
+             </span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="realm.name" placeholder="Realm Name" value="{{realm.name}}" name="realm-name">
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="material-icons">flag</i>
+          </span>
+      </div>
+      <select class="form-control" [(ngModel)]="realm.region" name="region">
+        <option class="text-muted" value="" disabled selected>Select a Region</option>
+        <option>English</option>
+        <option>German</option>
+        <option>Russian</option>
+        <option>French</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="material-icons">person</i>
+            </span>
+      </div>
+      <select class="form-control" [(ngModel)]="realm.player" name="player">
+        <option *ngFor="let player of players" [value]="player">
+          {{player.name}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-block btn-success">Update</button>
+  </form>
 </div>
